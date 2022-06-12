@@ -42,6 +42,7 @@ public class MenuEmpleado extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(142, 179, 223));
 
         jlbBienvenida.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jlbBienvenida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jlbBienvenida.setText("BIENVENIDO/A \"nombre\"");
 
         jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cerrar sesion.png"))); // NOI18N
@@ -51,20 +52,20 @@ public class MenuEmpleado extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(490, Short.MAX_VALUE)
                 .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(175, 175, 175)
-                .addComponent(jlbBienvenida)
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addComponent(jlbBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(120, Short.MAX_VALUE)
+                .addContainerGap(107, Short.MAX_VALUE)
                 .addComponent(jlbBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98)
+                .addGap(111, 111, 111)
                 .addComponent(jbSalir)
                 .addContainerGap())
         );
