@@ -19,4 +19,7 @@ public class listaCategoria {
             aux.setNodo(nodo);
         }
     }
+    public void eliminar(String id){
+        
+    }
 }
