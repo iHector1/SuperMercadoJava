@@ -5,6 +5,10 @@
  */
 package supermercadojava;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author PC
@@ -14,11 +18,24 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    public Login() {
+    Datos datos;
+    int s;
+    Image img = new ImageIcon("src/imagenes/usuario.png").getImage();
+    ImageIcon icon = new ImageIcon(img.getScaledInstance(100, 124, Image.SCALE_SMOOTH));
+    public Login(Datos datos) {
         initComponents();
-        jtfUsername.setText("Usuario");
-        jtfPassword.setText("Contraseña");
+        jtfUsername.setText("");
+        jtfPassword.setText("");
         this.setLocationRelativeTo(null);
+        this.setIconImage(this.getIconImage());
+        this.datos=datos;
+        this.s=0;
+    }
+        @Override
+    public Image getIconImage() {
+        //Se elige de los recursos de imágenes, la que se utilizará como icono
+        Image valorRetorno = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/usuario.png"));
+        return valorRetorno;
     }
 
     /**
@@ -56,6 +73,11 @@ public class Login extends javax.swing.JFrame {
         jbEntry.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbEntry.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Barra-Login.png"))); // NOI18N
         jbEntry.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Barra-Login-Selected.png"))); // NOI18N
+        jbEntry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEntryActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(5, 136, 206));
@@ -152,41 +174,45 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jbEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntryActionPerformed
+        // TODO add your handling code here:
+        if(!this.jtfUsername.getText().isEmpty() &&!this.jtfPassword.getText().isEmpty()){
+           if(this.jComboBox1.getSelectedIndex()==0){
+            //Administrador
+           int i=this.datos.admis.buscar(this.jtfUsername.getText(),this.jtfPassword.getText());
+           if(i!=-1){
+               this.s=i;
+               this.seguir();
+           }else{
+               this.jlbSystemMessage.setText("Datos incorrectos");
+           }
+            }else{
+               //Empleado
+           int i=this.datos.empleados.buscar(this.jtfUsername.getText(),this.jtfPassword.getText());
+           if(i!=-1){
+               this.s=i;
+               this.seguir2();
+           }else{
+               this.jlbSystemMessage.setText("Datos incorrectos");
+           }
+            } 
+        }else{
+            this.jlbSystemMessage.setText("Inserte todos los datos");
+        } 
+    }//GEN-LAST:event_jbEntryActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
-        });
+    private void seguir(){
+        this.datos.nombre=this.datos.admis.administrador[this.s].getNombre()+ " "+this.datos.admis.administrador[this.s].getApellido();
+        MenuAdministrador admi=new MenuAdministrador(this.datos);
+        admi.setVisible(true);
+        this.dispose();
     }
-
+    private void seguir2(){
+        this.datos.nombre=this.datos.empleados.empleados[this.s].getNombre()+ " "+this.datos.empleados.empleados[this.s].getApellido();
+        MenuEmpleado emple=new MenuEmpleado(this.datos);
+        emple.setVisible(true);
+        this.dispose();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;

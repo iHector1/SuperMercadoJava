@@ -5,6 +5,10 @@
  */
 package supermercadojava;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Benjamín Cortina
@@ -14,11 +18,23 @@ public class MenuAdministrador extends javax.swing.JFrame {
     /**
      * Creates new form MenuAdministrador
      */
-    public MenuAdministrador() {
+    Datos datos;
+            Image img = new ImageIcon("src/imagenes/administrador.png").getImage();
+    ImageIcon icon = new ImageIcon(img.getScaledInstance(100, 124, Image.SCALE_SMOOTH));
+    public MenuAdministrador(Datos datos) {
         initComponents();
+        this.datos=datos;
+        this.jlbBienvenida.setText(this.jlbBienvenida.getText()+" "+this.datos.nombre);
+        this.setIconImage(this.getIconImage());
         this.setLocationRelativeTo(null);
+        
     }
-
+        @Override
+    public Image getIconImage() {
+        //Se elige de los recursos de imágenes, la que se utilizará como icono
+        Image valorRetorno = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/administrador.png"));
+        return valorRetorno;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,7 +61,7 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
         jlbBienvenida.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jlbBienvenida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlbBienvenida.setText("BIENVENIDO/A \"nombre\"");
+        jlbBienvenida.setText("BIENVENIDO/A ");
 
         jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cerrar sesion.png"))); // NOI18N
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -105,42 +121,11 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         // TODO add your handling code here:
+        Login login=new Login(this.datos);
+        login.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuAdministrador().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;

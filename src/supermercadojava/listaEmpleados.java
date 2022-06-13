@@ -20,9 +20,9 @@ public class listaEmpleados {
     }
 
     
-    public int buscar(String id){
+    public int buscar(String id,String contrasena){
         for(int i= 0;i<this.contador;i++){
-            if(id.equals(this.empleados[i].getIdentificador())){
+            if(id.equals(this.empleados[i].getIdentificador())&& contrasena.equals(this.empleados[i].getContrasena())){
                 return i;
             }
         }
