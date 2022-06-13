@@ -213,6 +213,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jbRegistrar.setText("REGISTRAR");
         jPanel1.add(jbRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 550, 130, 40));
 
+        jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/editar.png"))); // NOI18N
         jbModificar.setText("MODIFICAR");
         jPanel1.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 130, 40));
 
