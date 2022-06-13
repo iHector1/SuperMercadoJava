@@ -20,6 +20,17 @@ public class listaCategoria {
         }
     }
     public void eliminar(String id){
-        
+        if(this.inicio==null){
+            System.out.println("lista vacía");
+        }else{
+            nodoCategoria actual = this.inicio;
+                while (actual.getNodo()!=null )
+                    actual = actual.getNodo();
+                    if (actual.getNodo()== null )
+                        System.out.println ("elemento "+id+" no esta en la lista");
+                    else{
+                        actual.setNodo(actual.getNodo().getNodo());
+                    }
+        }
     }
 }
