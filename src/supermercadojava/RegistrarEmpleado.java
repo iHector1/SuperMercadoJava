@@ -14,8 +14,10 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
     /**
      * Creates new form RegistrarEmpleado
      */
-    public RegistrarEmpleado() {
+    Datos datos;
+    public RegistrarEmpleado(Datos datos) {
         initComponents();
+        this.datos = datos;
         this.setLocationRelativeTo(null);
     }
 
@@ -33,34 +35,34 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        identificador = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        nombre = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        edad = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        domicilio = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        horoariobox = new javax.swing.JComboBox<>();
         jPanel7 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        salario = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
         jPanel9 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        contrasena = new javax.swing.JPasswordField();
         jPanel10 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        apellido = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        fechaNacimiento = new javax.swing.JTextField();
         jbRegistrar = new javax.swing.JButton();
         jbModificar = new javax.swing.JButton();
         jbBuscar = new javax.swing.JButton();
@@ -96,7 +98,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(95, 108, 247));
         jLabel5.setText("IDENTIFICADOR");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 100, -1));
+        jPanel2.add(identificador, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 100, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 87, 250, 40));
 
@@ -107,7 +109,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(95, 108, 247));
         jLabel3.setText("NOMBRE");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 100, -1));
+        jPanel3.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 100, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 270, 40));
 
@@ -118,7 +120,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(95, 108, 247));
         jLabel7.setText("EDAD");
         jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-        jPanel4.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 100, -1));
+        jPanel4.add(edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 100, -1));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 270, 40));
 
@@ -129,7 +131,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(95, 108, 247));
         jLabel8.setText("DOMICILIO");
         jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-        jPanel5.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 380, -1));
+        jPanel5.add(domicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 380, -1));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 585, 40));
 
@@ -141,8 +143,8 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jLabel9.setText("HORARIO");
         jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MATUTINO", "VESPERTINO", "MIXTO" }));
-        jPanel6.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
+        horoariobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MATUTINO", "VESPERTINO", "MIXTO" }));
+        jPanel6.add(horoariobox, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 270, 40));
 
@@ -153,7 +155,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(95, 108, 247));
         jLabel10.setText("SALARIO");
         jPanel7.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-        jPanel7.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 100, -1));
+        jPanel7.add(salario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 100, -1));
 
         jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, 270, 40));
 
@@ -165,7 +167,12 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jLabel11.setText("LUGAR DE TRABAJO");
         jPanel8.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RECEPCIONISTA", "VENDEDOR", "ALMACENISTA" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "VENDEDOR", "ALMACENISTA" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
         jPanel8.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
 
         jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 321, 280, 40));
@@ -177,7 +184,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(95, 108, 247));
         jLabel12.setText("CONTRASEÑA");
         jPanel9.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-        jPanel9.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 100, -1));
+        jPanel9.add(contrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 100, -1));
 
         jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 380, 280, 40));
 
@@ -188,7 +195,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(95, 108, 247));
         jLabel4.setText("APELLIDO");
         jPanel10.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-        jPanel10.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 100, -1));
+        jPanel10.add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 100, -1));
 
         jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 145, 280, 40));
 
@@ -199,7 +206,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(95, 108, 247));
         jLabel6.setText("FECHA DE NACIMIENTO");
         jPanel11.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-        jPanel11.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 100, -1));
+        jPanel11.add(fechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 100, -1));
 
         jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 203, 280, 40));
 
@@ -226,43 +233,23 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistrarEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistrarEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistrarEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistrarEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+        if(!this.identificador.getText().isEmpty()||
+                !this.nombre.getText().isEmpty()){
+            
         }
-        //</editor-fold>
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RegistrarEmpleado().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JTextField apellido;
+    private javax.swing.JPasswordField contrasena;
+    private javax.swing.JTextField domicilio;
+    private javax.swing.JTextField edad;
+    private javax.swing.JTextField fechaNacimiento;
+    private javax.swing.JComboBox<String> horoariobox;
+    private javax.swing.JTextField identificador;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -287,18 +274,12 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbModificar;
     private javax.swing.JButton jbRegistrar;
     private javax.swing.JLabel jlbSystemMessage;
+    private javax.swing.JTextField nombre;
+    private javax.swing.JTextField salario;
     // End of variables declaration//GEN-END:variables
 }
