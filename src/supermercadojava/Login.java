@@ -177,28 +177,28 @@ public class Login extends javax.swing.JFrame {
     private void jbEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEntryActionPerformed
         // TODO add your handling code here:
         if(!this.jtfUsername.getText().isEmpty() &&!this.jtfPassword.getText().isEmpty()){
-           if(this.jComboBox1.getSelectedIndex()==0){
-            //Administrador
-           int i=this.datos.admis.buscar(this.jtfUsername.getText(),this.jtfPassword.getText());
-           if(i!=-1){
-               this.s=i;
-               this.seguir();
-           }else{
-               this.jlbSystemMessage.setText("Datos incorrectos");
-           }
+            if(this.jComboBox1.getSelectedIndex()==0){
+                //Administrador
+                int i=this.datos.admis.buscar(this.jtfUsername.getText(),this.jtfPassword.getText());
+                if(i!=-1){
+                    this.s=i;
+                    this.seguir();
+                }else{
+                    this.jlbSystemMessage.setText("Datos incorrectos");
+                }
             }else{
-               //Empleado
-           int i=this.datos.empleados.buscar(this.jtfUsername.getText(),this.jtfPassword.getText());
-           if(i!=-1){
-               this.s=i;
-               this.seguir2();
-           }else{
-               this.jlbSystemMessage.setText("Datos incorrectos");
-           }
-            } 
+                //Empleado
+                int i=this.datos.empleados.buscar(this.jtfUsername.getText(),this.jtfPassword.getText());
+                if(i!=-1){
+                    this.s=i;
+                    this.seguir2();
+                }else{
+                    this.jlbSystemMessage.setText("Datos incorrectos");
+                }
+            }
         }else{
             this.jlbSystemMessage.setText("Inserte todos los datos");
-        } 
+        }
     }//GEN-LAST:event_jbEntryActionPerformed
 
     private void seguir(){
