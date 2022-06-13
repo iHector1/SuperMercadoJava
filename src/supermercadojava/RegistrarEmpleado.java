@@ -210,6 +210,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
 
         jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 203, 280, 40));
 
+        jbRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar.png"))); // NOI18N
         jbRegistrar.setText("REGISTRAR");
         jPanel1.add(jbRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 550, 130, 40));
 
@@ -217,9 +218,11 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jbModificar.setText("MODIFICAR");
         jPanel1.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 130, 40));
 
+        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
         jbBuscar.setText("BUSCAR");
         jPanel1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 550, 130, 40));
 
+        jbEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         jbEliminar.setText("ELIMINAR");
         jPanel1.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 550, 130, 40));
 
