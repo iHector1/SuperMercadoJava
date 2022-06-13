@@ -31,7 +31,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jlbSystemMessage = new javax.swing.JLabel();
+        mensaje = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -79,12 +79,12 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(620, 650));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jlbSystemMessage.setBackground(new java.awt.Color(246, 246, 246));
-        jlbSystemMessage.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        jlbSystemMessage.setForeground(new java.awt.Color(246, 246, 246));
-        jlbSystemMessage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlbSystemMessage.setText("Waiting data...");
-        jPanel1.add(jlbSystemMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 490, 580, -1));
+        mensaje.setBackground(new java.awt.Color(246, 246, 246));
+        mensaje.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        mensaje.setForeground(new java.awt.Color(246, 246, 246));
+        mensaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mensaje.setText("Waiting data...");
+        jPanel1.add(mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 490, 580, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(246, 246, 246));
@@ -237,8 +237,18 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
         if(!this.identificador.getText().isEmpty()||
-                !this.nombre.getText().isEmpty()){
-            
+                !this.nombre.getText().isEmpty()||
+                !this.apellido.getText().isEmpty()||
+                !this.fechaNacimiento.getText().isEmpty()||
+                !this.domicilio.getText().isEmpty()||
+                !this.salario.getText().isEmpty()||
+                !this.contrasena.getText().isEmpty()){
+            String nombre=this.nombre.getText();
+            String id=this.identificador.getText();
+            String apellido=this.apellido.getText();
+            String fecha=this.fechaNacimiento.getText();
+        }else{
+            this.mensaje.setText("Llena todos los campos");
         }
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
@@ -279,7 +289,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbModificar;
     private javax.swing.JButton jbRegistrar;
-    private javax.swing.JLabel jlbSystemMessage;
+    private javax.swing.JLabel mensaje;
     private javax.swing.JTextField nombre;
     private javax.swing.JTextField salario;
     // End of variables declaration//GEN-END:variables
