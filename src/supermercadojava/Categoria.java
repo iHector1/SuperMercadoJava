@@ -9,7 +9,7 @@ public class Categoria {
     private String localizacion; 
     
     //constructor
-    public Categoria(int identificador, String nombre, String description, String descripcion, String localizacion) {
+    public Categoria(int identificador, String nombre, String descripcion, String localizacion) {
         this.identificador = identificador;
         this.nombre = nombre;
         this.description = description;
