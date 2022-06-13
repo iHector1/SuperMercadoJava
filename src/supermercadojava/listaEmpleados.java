@@ -28,8 +28,15 @@ public class listaEmpleados {
         }
         return -1;
     }
-    
-    public void eliminar(String id){
+    public int buscar(String id){
+        for(int i= 0;i<this.contador;i++){
+            if(id.equals(this.empleados[i].getIdentificador())){
+                return i;
+            }
+        }
+        return -1;
+    }
+    public int eliminar(String id){
         int codigo=-1;
         for(int i=0;i<this.contador;i++){
             if(this.empleados[i].getIdentificador().equals(id)){
@@ -42,6 +49,7 @@ public class listaEmpleados {
         this.elimination(codigo);
         this.contador--;
         }
+        return codigo;
     }
     public int elimination(int position){
         for(int i=position;i<this.contador-position;i++)

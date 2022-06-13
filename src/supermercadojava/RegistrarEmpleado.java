@@ -53,7 +53,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         salario = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        areacombo = new javax.swing.JComboBox<>();
         jPanel9 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         contrasena = new javax.swing.JPasswordField();
@@ -168,13 +168,13 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jLabel11.setText("LUGAR DE TRABAJO");
         jPanel8.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "VENDEDOR", "ALMACENISTA" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        areacombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "VENDEDOR", "ALMACENISTA" }));
+        areacombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                areacomboActionPerformed(evt);
             }
         });
-        jPanel8.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+        jPanel8.add(areacombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
 
         jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 280, 40));
 
@@ -231,6 +231,11 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
 
         jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
         jbBuscar.setText("BUSCAR");
+        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuscarActionPerformed(evt);
+            }
+        });
         jPanel1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(478, 510, 140, 40));
 
         jbEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
@@ -261,9 +266,9 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void areacomboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_areacomboActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_areacomboActionPerformed
 
     private void jbRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegistrarActionPerformed
         // TODO add your handling code here:
@@ -284,7 +289,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
             double salario=Double.parseDouble(this.salario.getText());
             int edad=Integer.parseInt(this.edad.getText());
             Empleado emp=new Empleado(id,this.horoariobox.getSelectedItem().toString(),
-                    salario,this.jComboBox2.getSelectedItem().toString()
+                    salario,this.areacombo.getSelectedItem().toString()
                     ,contrasena,nombre,apellido,fecha,edad,domicilio);
             this.datos.empleados.agregar(emp);
             this.limpiar();
@@ -300,12 +305,63 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
         // TODO add your handling code here:
+        if(!this.identificador.getText().isEmpty()){
+           int i= this.datos.empleados.eliminar(this.identificador.getText());
+            if(i!=-1){
+                this.mensaje.setText("Empleado Eliminado");
+            }else{
+                this.mensaje.setText("Empleado no encontrado");
+            }
+        }else{
+            this.mensaje.setText("Llena el campo de identificador");
+        }
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jbVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverActionPerformed
         // TODO add your handling code here:
-      
+        MenuAdministrador menu=new MenuAdministrador(this.datos);
+        menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jbVolverActionPerformed
+
+    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
+        // TODO add your handling code here:
+        if(!this.identificador.getText().isEmpty()){
+           int i= this.datos.empleados.buscar(this.identificador.getText());
+            if(i!=-1){
+                this.encontrado(i);
+                this.mensaje.setText("Empleado encotrado");
+            }else{
+                this.mensaje.setText("Empleado no encontrado");
+            }
+        }else{
+            this.mensaje.setText("Llena el campo de identificador");
+        }
+    }//GEN-LAST:event_jbBuscarActionPerformed
+private void encontrado(int posicion){
+    Empleado emp=this.datos.empleados.empleados[posicion];
+    this.nombre.setText(emp.getNombre());
+    this.apellido.setText(emp.getApellido());
+    this.edad.setText(emp.getEdad()+"");
+    this.fechaNacimiento.setText(emp.getFechaNacimiento());
+    this.domicilio.setText(emp.getDomicilio());
+    this.salario.setText(emp.getSalario()+"");
+    
+    if(emp.getHorario()=="MATUTINO"){
+        this.horoariobox.setSelectedIndex(0);
+    }else if(emp.getHorario()=="VESPERTINO"){
+        this.horoariobox.setSelectedIndex(1);
+    }else{
+       this.horoariobox.setSelectedIndex(2); 
+    }
+    if(emp.getArea()=="VENDEDOR"){
+       this.areacombo.setSelectedIndex(0); 
+    }else{
+        this.areacombo.setSelectedIndex(1); 
+    }
+    
+    
+}
 private void limpiar(){
     this.nombre.setText("");
     this.identificador.setText("");
@@ -319,13 +375,13 @@ private void limpiar(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField apellido;
+    private javax.swing.JComboBox<String> areacombo;
     private javax.swing.JPasswordField contrasena;
     private javax.swing.JTextField domicilio;
     private javax.swing.JTextField edad;
     private javax.swing.JTextField fechaNacimiento;
     private javax.swing.JComboBox<String> horoariobox;
     private javax.swing.JTextField identificador;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
