@@ -16,6 +16,7 @@ public class RegistrarCategoria extends javax.swing.JFrame {
      */
     public RegistrarCategoria() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -46,67 +47,79 @@ public class RegistrarCategoria extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        mensaje = new javax.swing.JLabel();
+        jbVolver = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(620, 650));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(235, 124, 112));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setForeground(new java.awt.Color(246, 246, 246));
         jLabel2.setText("O USE EL IDENTIFICADOR PARA BUSCAR Y/O MODIFICAR");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 48, -1, -1));
 
         jLabel13.setBackground(new java.awt.Color(246, 246, 246));
         jLabel13.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel13.setForeground(new java.awt.Color(246, 246, 246));
         jLabel13.setText("INTRODUZCA LOS DATOS PARA REGISTRAR UNA NUEVA CATEGORIA");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 22, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(254, 232, 238));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel1.setText("IDENTIFICADOR");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
         jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 100, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 280, 40));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 280, 40));
 
         jPanel3.setBackground(new java.awt.Color(254, 232, 238));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel3.setText("NOMBRE DE CATEGORÍA");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
         jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 100, -1));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 280, 40));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 280, 40));
 
         jPanel4.setBackground(new java.awt.Color(252, 198, 198));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel6.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel6.setText("CATEGORÍA");
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel4.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 280, 40));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 280, 40));
 
         jPanel5.setBackground(new java.awt.Color(252, 198, 198));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel5.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel5.setText("LOCALIZACIÓN");
         jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel5.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 280, 40));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 280, 40));
 
         jPanel6.setBackground(new java.awt.Color(250, 163, 163));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel4.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel4.setText("DESCRIPCIÓN");
         jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
@@ -117,12 +130,48 @@ public class RegistrarCategoria extends javax.swing.JFrame {
 
         jPanel6.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 330, -1));
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 500, 125));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 500, 125));
+
+        mensaje.setBackground(new java.awt.Color(246, 246, 246));
+        mensaje.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        mensaje.setForeground(new java.awt.Color(246, 246, 246));
+        mensaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mensaje.setText("Waiting data...");
+        jPanel1.add(mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 580, -1));
+
+        jbVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/regreso.png"))); // NOI18N
+        jbVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbVolverActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 600, 60, 40));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/editar.png"))); // NOI18N
+        jButton1.setText("MODIFICAR");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 510, 140, 40));
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar.png"))); // NOI18N
+        jButton2.setText("REGISTRAR");
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 510, 140, 40));
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
+        jButton3.setText("ELIMINAR");
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 510, 140, 40));
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
+        jButton4.setText("BUSCAR");
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(478, 510, 140, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jbVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,6 +209,10 @@ public class RegistrarCategoria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
@@ -179,5 +232,7 @@ public class RegistrarCategoria extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton jbVolver;
+    private javax.swing.JLabel mensaje;
     // End of variables declaration//GEN-END:variables
 }
