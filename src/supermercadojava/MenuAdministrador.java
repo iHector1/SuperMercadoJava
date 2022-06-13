@@ -117,6 +117,10 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
     private void jmiRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRegistrarActionPerformed
         // TODO add your handling code here:
+        RegistrarEmpleado empleado=new RegistrarEmpleado(this.datos);
+        empleado.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_jmiRegistrarActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
