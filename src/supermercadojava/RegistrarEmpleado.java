@@ -68,6 +68,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jbBuscar = new javax.swing.JButton();
         jbEliminar = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jbVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(620, 650));
@@ -84,7 +85,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         mensaje.setForeground(new java.awt.Color(246, 246, 246));
         mensaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mensaje.setText("Waiting data...");
-        jPanel1.add(mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 490, 580, -1));
+        jPanel1.add(mensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 580, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(246, 246, 246));
@@ -230,17 +231,20 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
 
         jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
         jbBuscar.setText("BUSCAR");
-        jPanel1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 550, 130, 40));
+        jPanel1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 510, 130, 40));
 
         jbEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         jbEliminar.setText("ELIMINAR");
-        jPanel1.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 550, 130, 40));
+        jPanel1.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 510, 130, 40));
 
         jLabel13.setBackground(new java.awt.Color(246, 246, 246));
         jLabel13.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(246, 246, 246));
         jLabel13.setText("INTRODUZCA LOS DATOS PARA REGISTRAR UN NUEVO EMPLEADO");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 11, -1, -1));
+
+        jbVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/regreso.png"))); // NOI18N
+        jPanel1.add(jbVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 600, 60, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 650));
 
@@ -330,6 +334,7 @@ private void limpiar(){
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbModificar;
     private javax.swing.JButton jbRegistrar;
+    private javax.swing.JButton jbVolver;
     private javax.swing.JLabel mensaje;
     private javax.swing.JTextField nombre;
     private javax.swing.JTextField salario;
