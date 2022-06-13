@@ -5,6 +5,10 @@
  */
 package supermercadojava;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Benjamín Cortina
@@ -14,11 +18,22 @@ public class MenuEmpleado extends javax.swing.JFrame {
     /**
      * Creates new form MenuEmpleado
      */
-    public MenuEmpleado() {
+        Image img = new ImageIcon("src/imagenes/empleado.png").getImage();
+    ImageIcon icon = new ImageIcon(img.getScaledInstance(100, 124, Image.SCALE_SMOOTH));
+    Datos datos;
+    public MenuEmpleado(Datos datos) {
         initComponents();
+        this.datos=datos;
+        this.jlbBienvenida.setText(this.jlbBienvenida.getText()+" "+this.datos.nombre);
+        this.setIconImage(this.getIconImage());
         this.setLocationRelativeTo(null);
     }
-
+        @Override
+    public Image getIconImage() {
+        //Se elige de los recursos de imágenes, la que se utilizará como icono
+        Image valorRetorno = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/empleado.png"));
+        return valorRetorno;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,6 +47,9 @@ public class MenuEmpleado extends javax.swing.JFrame {
         jlbBienvenida = new javax.swing.JLabel();
         jbSalir = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jmProductos = new javax.swing.JMenu();
         jmiRegistrar = new javax.swing.JMenuItem();
         jmiConsultar = new javax.swing.JMenuItem();
@@ -43,9 +61,14 @@ public class MenuEmpleado extends javax.swing.JFrame {
 
         jlbBienvenida.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jlbBienvenida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlbBienvenida.setText("BIENVENIDO/A \"nombre\"");
+        jlbBienvenida.setText("BIENVENIDO/A ");
 
         jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cerrar sesion.png"))); // NOI18N
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -72,6 +95,21 @@ public class MenuEmpleado extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 300));
 
+        jMenu1.setText("Categoria");
+
+        jMenuItem1.setText("Registrar/Modificar");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Consultar");
+        jMenu1.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu1);
+
         jmProductos.setText("Productos");
 
         jmiRegistrar.setText("Registrar/Modificar");
@@ -87,43 +125,23 @@ public class MenuEmpleado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MenuEmpleado().setVisible(true);
-            }
-        });
-    }
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        // TODO add your handling code here:
+        Login login=new Login(this.datos);
+        login.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbSalir;
     private javax.swing.JLabel jlbBienvenida;
