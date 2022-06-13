@@ -212,10 +212,20 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
 
         jbRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar.png"))); // NOI18N
         jbRegistrar.setText("REGISTRAR");
+        jbRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbRegistrarActionPerformed(evt);
+            }
+        });
         jPanel1.add(jbRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 550, 130, 40));
 
         jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/editar.png"))); // NOI18N
         jbModificar.setText("MODIFICAR");
+        jbModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModificarActionPerformed(evt);
+            }
+        });
         jPanel1.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 130, 40));
 
         jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
@@ -239,22 +249,50 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
-        if(!this.identificador.getText().isEmpty()||
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jbRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegistrarActionPerformed
+        // TODO add your handling code here:
+                if(!this.identificador.getText().isEmpty()||
                 !this.nombre.getText().isEmpty()||
                 !this.apellido.getText().isEmpty()||
                 !this.fechaNacimiento.getText().isEmpty()||
                 !this.domicilio.getText().isEmpty()||
                 !this.salario.getText().isEmpty()||
-                !this.contrasena.getText().isEmpty()){
+                !this.contrasena.getText().isEmpty()||
+                !this.edad.getText().isEmpty()){
             String nombre=this.nombre.getText();
             String id=this.identificador.getText();
             String apellido=this.apellido.getText();
             String fecha=this.fechaNacimiento.getText();
+            String domicilio=this.domicilio.getText();
+            String contrasena=this.contrasena.getText();
+            double salario=Double.parseDouble(this.salario.getText());
+            int edad=Integer.parseInt(this.edad.getText());
+            Empleado emp=new Empleado(id,this.horoariobox.getSelectedItem().toString(),
+                    salario,this.jComboBox2.getSelectedItem().toString()
+                    ,contrasena,nombre,apellido,fecha,edad,domicilio);
+            this.datos.empleados.agregar(emp);
+            this.limpiar();
+            this.mensaje.setText("Empleado Registrado");
         }else{
             this.mensaje.setText("Llena todos los campos");
         }
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_jbRegistrarActionPerformed
 
+    private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbModificarActionPerformed
+private void limpiar(){
+    this.nombre.setText("");
+    this.identificador.setText("");
+    this.apellido.setText("");
+    this.fechaNacimiento.setText("");
+    this.domicilio.setText("");
+    this.contrasena.setText("");
+    this.salario.setText("");
+    this.edad.setText("");
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField apellido;
