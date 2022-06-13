@@ -134,7 +134,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
         jPanel5.add(domicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 380, -1));
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 585, 40));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 600, 40));
 
         jPanel6.setBackground(new java.awt.Color(198, 202, 252));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -176,7 +176,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         });
         jPanel8.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
 
-        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 321, 280, 40));
+        jPanel1.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 280, 40));
 
         jPanel9.setBackground(new java.awt.Color(198, 202, 252));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -187,7 +187,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jPanel9.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
         jPanel9.add(contrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 100, -1));
 
-        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 380, 280, 40));
+        jPanel1.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 280, 40));
 
         jPanel10.setBackground(new java.awt.Color(232, 234, 254));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -198,7 +198,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jPanel10.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
         jPanel10.add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 100, -1));
 
-        jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 145, 280, 40));
+        jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 150, 280, 40));
 
         jPanel11.setBackground(new java.awt.Color(232, 234, 254));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -209,33 +209,23 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jPanel11.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
         jPanel11.add(fechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 100, -1));
 
-        jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 203, 280, 40));
+        jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 280, 40));
 
         jbRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar.png"))); // NOI18N
         jbRegistrar.setText("REGISTRAR");
-        jbRegistrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbRegistrarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jbRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 550, 130, 40));
+        jPanel1.add(jbRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 510, 140, 40));
 
         jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/editar.png"))); // NOI18N
         jbModificar.setText("MODIFICAR");
-        jbModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbModificarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 130, 40));
+        jPanel1.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 510, 140, 40));
 
         jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
         jbBuscar.setText("BUSCAR");
-        jPanel1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 510, 130, 40));
+        jPanel1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(478, 510, 140, 40));
 
         jbEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         jbEliminar.setText("ELIMINAR");
-        jPanel1.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 510, 130, 40));
+        jPanel1.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 510, 140, 40));
 
         jLabel13.setBackground(new java.awt.Color(246, 246, 246));
         jLabel13.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
