@@ -22,6 +22,7 @@ public class ConsultarEmpleados extends javax.swing.JFrame {
     DefaultTableModel table = new DefaultTableModel();
     public ConsultarEmpleados(Datos datos) {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.datos=datos;
         String [] columnas= new String[]{"ID","Nombre","Apellido","Fecha de nacimiento"
                 ,"Edad","Salario","Horario","Area","Domicilio"};
@@ -86,14 +87,14 @@ public class ConsultarEmpleados extends javax.swing.JFrame {
                 .addContainerGap(1196, Short.MAX_VALUE)
                 .addComponent(jbVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(289, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(278, 278, 278)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 277, Short.MAX_VALUE)
                 .addComponent(jbVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
