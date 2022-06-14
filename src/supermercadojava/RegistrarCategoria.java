@@ -239,6 +239,7 @@ public class RegistrarCategoria extends javax.swing.JFrame {
             String descripcion=this.descripcion.getText();
             this.limpiar();
             Categoria cate=new Categoria(id,nombre,clasi,pasillo,descripcion);
+            this.limpiar();
             this.mensaje.setText(this.datos.categoria.editar(id,cate));
         }else{
             this.mensaje.setText("Ingrese todo los datos");
@@ -265,13 +266,7 @@ public class RegistrarCategoria extends javax.swing.JFrame {
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
         // TODO add your handling code here:
-        if(!this.identificador.getText().isEmpty()){
-            String id=this.identificador.getText();
-            this.datos.categoria.eliminar(id);
-            this.mensaje.setText("La categoria ha sido eliminada");
-        }else{
-            this.mensaje.setText("Ingrese el identificador");
-        }
+            this.mensaje.setText(this.datos.categoria.eliminar());
     }//GEN-LAST:event_jbEliminarActionPerformed
 private void limpiar(){
     this.identificador.setText("");

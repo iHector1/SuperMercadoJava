@@ -5,6 +5,9 @@
  */
 package supermercadojava;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Benjamín Cortina
@@ -15,9 +18,20 @@ public class ConsultarProducto extends javax.swing.JFrame {
      * Creates new form ConsultarProducto
      */
     Datos datos;
+    DefaultTableModel table = new DefaultTableModel();
     public ConsultarProducto(Datos datos) {
         initComponents();
         this.datos = datos;
+        this.datos=datos;
+        String [] columnas= new String[]{"ID","Nombre","Precio","Categoria"
+                ,"Descripcion"};
+        table.setColumnIdentifiers(columnas);
+        this.tabla.setModel(table);
+        if(this.datos.categoria.inicio==null){ 
+            JOptionPane.showMessageDialog(null, "No hay empleados registrados","Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+           this.mostrar();
+        }
         this.setLocationRelativeTo(null);
     }
 
@@ -33,7 +47,7 @@ public class ConsultarProducto extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jbVolver = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,7 +60,7 @@ public class ConsultarProducto extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -57,7 +71,7 @@ public class ConsultarProducto extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabla);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -92,18 +106,26 @@ public class ConsultarProducto extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private void mostrar(){
+        listaProducto pro=this.datos.productos;
+        nodoProducto node=pro.inicio;
+        while(node!=null){
+            Producto a=node.getProducto();
+            table.addRow(new Object[]{a.getIdentificador(),a.getNombre(),a.getPrecio(),a.getCategoria(),a.getDescripcion()});
+            node=node.getNodo();
+        }
+    }
     private void jbVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverActionPerformed
         MenuEmpleado menuEmpleado = new MenuEmpleado(this.datos);
         menuEmpleado.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbVolverActionPerformed
-
+    
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton jbVolver;
+    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 }

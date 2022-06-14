@@ -23,12 +23,14 @@ public class listaProducto {
             this.tamano++;
         }
     }
-    public void eliminar(String id){
+    public String eliminar(){
         if(this.inicio==null){
             System.out.println("lista vacía");
+            return "Lista vacia";
         }else{
             this.inicio = this.inicio.getNodo();
             this.tamano--;
+            return "Eliminado";
         }
     } 
     

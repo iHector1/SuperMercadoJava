@@ -5,6 +5,8 @@
  */
 package supermercadojava;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Benjamín Cortina
@@ -15,8 +17,10 @@ public class RegistrarProducto extends javax.swing.JFrame {
      * Creates new form RegistrarProducto
      */
     Datos datos;
+    int tamano;
     public RegistrarProducto(Datos datos) {
         initComponents();
+        this.tamano=0;
         this.datos = datos;
         this.categorias();
         this.setLocationRelativeTo(null);
@@ -146,6 +150,11 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
         jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/editar.png"))); // NOI18N
         jbModificar.setText("MODIFICAR");
+        jbModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModificarActionPerformed(evt);
+            }
+        });
         jPanel1.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 510, 140, 40));
 
         jbRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar.png"))); // NOI18N
@@ -159,10 +168,20 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
         jbEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         jbEliminar.setText("ELIMINAR");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
         jPanel1.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 510, 140, 40));
 
         jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
         jbBuscar.setText("BUSCAR");
+        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuscarActionPerformed(evt);
+            }
+        });
         jPanel1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(478, 510, 140, 40));
 
         jbVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/regreso.png"))); // NOI18N
@@ -181,11 +200,15 @@ public class RegistrarProducto extends javax.swing.JFrame {
         listaCategoria cate=this.datos.categoria;
         nodoCategoria node=cate.inicio;
         while(node!=null){
-            System.out.println("holi");
             Categoria a=node.getCategoria();
             this.categoria.addItem(a.getNombre());
             node=node.getNodo();
+            this.tamano++;
         }
+        if(this.tamano==0){
+             JOptionPane.showMessageDialog(null, "No hay categorias registradas","Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
     }
     private void jbVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverActionPerformed
       MenuEmpleado menuEmpleado = new MenuEmpleado(this.datos);
@@ -193,13 +216,80 @@ public class RegistrarProducto extends javax.swing.JFrame {
       this.dispose();
     }//GEN-LAST:event_jbVolverActionPerformed
 
+    private void limpiar(){
+         this.identificador.setText("");
+         this.nombre.setText("");
+         this.descripcion.setText("");
+         this.categoria.setSelectedIndex(0);
+         this.precio.setText("");
+    }
     private void jbRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegistrarActionPerformed
-        
+        if(!this.nombre.getText().isEmpty()&&
+                !this.identificador.getText().isEmpty()&&
+                !this.descripcion.getText().isEmpty()&&
+                !this.precio.getText().isEmpty()&&this.tamano>0){
+            String identificador=this.identificador.getText();
+            String nombre=this.nombre.getText();
+            String descripcion=this.descripcion.getText();
+            String categoria=this.categoria.getSelectedItem().toString();
+            Double precio=Double.parseDouble(this.precio.getText());
+            Producto pro=new Producto(identificador,nombre,precio,descripcion,categoria);
+            this.datos.productos.agregar(pro);
+            this.mensaje.setText("Producto agregado");
+            this.limpiar();
+        }else{
+            this.mensaje.setText("Inserte todos los campos");
+        }
     }//GEN-LAST:event_jbRegistrarActionPerformed
 
     private void categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_categoriaActionPerformed
+
+    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
+        // TODO add your handling code here:
+        if(!this.identificador.getText().isEmpty()){
+            String id=this.identificador.getText();
+            Producto pro=this.datos.productos.buscar(id);
+            
+            System.out.println(pro);
+            if(pro!=null){
+                this.nombre.setText(pro.getNombre());
+                this.descripcion.setText(pro.getDescripcion());
+                this.precio.setText(pro.getPrecio()+"");
+                this.mensaje.setText("Encontrado"); 
+            }else{
+                this.mensaje.setText("No se encontro"); 
+            }
+        }else{
+           this.mensaje.setText("Ingrese el identificador"); 
+        }
+    }//GEN-LAST:event_jbBuscarActionPerformed
+
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+        // TODO add your handling code here:
+            this.mensaje.setText(this.datos.productos.eliminar());
+    }//GEN-LAST:event_jbEliminarActionPerformed
+
+    private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
+        // TODO add your handling code here:
+        if(!this.nombre.getText().isEmpty()&&
+                !this.identificador.getText().isEmpty()&&
+                !this.descripcion.getText().isEmpty()&&
+                !this.precio.getText().isEmpty()){
+            String identificador=this.identificador.getText();
+            String nombre=this.nombre.getText();
+            String descripcion=this.descripcion.getText();
+            String categoria=this.categoria.getSelectedItem().toString();
+            Double precio=Double.parseDouble(this.precio.getText());
+            Producto pro=new Producto(identificador,nombre,precio,descripcion,categoria);
+            this.datos.productos.editar(identificador,pro);
+            this.mensaje.setText(this.datos.productos.editar(identificador,pro));
+            this.limpiar();
+        }else{
+            this.mensaje.setText("Inserte todos los campos");
+        }
+    }//GEN-LAST:event_jbModificarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
