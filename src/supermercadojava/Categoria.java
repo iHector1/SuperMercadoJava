@@ -2,27 +2,27 @@
 package supermercadojava;
 
 public class Categoria {
-    private int identificador;
+    private String identificador;
     private String nombre;
-    private String categoria;
+    private String clasificacion;
     private String descripcion;
     private String localizacion; 
     
     //constructor
-    public Categoria(int identificador, String nombre, String categoria, String localizacion,String descripcion) {
+    public Categoria(String identificador, String nombre, String clasificacion, String localizacion,String descripcion) {
         this.identificador = identificador;
         this.nombre = nombre;
-        this.categoria = categoria;
+        this.clasificacion = clasificacion;
         this.descripcion = descripcion;
         this.localizacion = localizacion;
     }
     //getters and setters
 
-    public int getIdentificador() {
+    public String getIdentificador() {
         return identificador;
     }
 
-    public void setIdentificador(int identificador) {
+    public void setIdentificador(String identificador) {
         this.identificador = identificador;
     }
 
@@ -34,12 +34,12 @@ public class Categoria {
         this.nombre = nombre;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public String getClasificacion() {
+        return clasificacion;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setClasificacion(String clasificacion) {
+        this.clasificacion = clasificacion;
     }
     
 

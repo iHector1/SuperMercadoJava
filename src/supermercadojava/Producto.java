@@ -6,16 +6,17 @@ public class Producto {
     private String nombre;
     private double precio;
     private String descripcion;
-    private int cantidad;
+    private String categoria;
     //constructores
-    public Producto(String identificador, String nombre, double precio, 
-            String descripcion, int cantidad) {
+
+    public Producto(String identificador, String nombre, double precio, String descripcion, String categoria) {
         this.identificador = identificador;
         this.nombre = nombre;
         this.precio = precio;
         this.descripcion = descripcion;
-        this.cantidad = cantidad;
+        this.categoria = categoria;
     }
+    
     //getter and setters
 
     public String getIdentificador() {
@@ -50,14 +51,14 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public int getCantidad() {
-        return cantidad;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
-    
+
     
     
 }
