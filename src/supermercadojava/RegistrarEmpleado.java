@@ -72,6 +72,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(620, 650));
+        setSize(new java.awt.Dimension(620, 650));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(146, 79, 246));
@@ -96,6 +97,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setBackground(new java.awt.Color(95, 108, 247));
+        jLabel5.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(95, 108, 247));
         jLabel5.setText("IDENTIFICADOR");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
@@ -107,6 +109,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setBackground(new java.awt.Color(95, 108, 247));
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(95, 108, 247));
         jLabel3.setText("NOMBRE");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
@@ -118,6 +121,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setBackground(new java.awt.Color(95, 108, 247));
+        jLabel7.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(95, 108, 247));
         jLabel7.setText("EDAD");
         jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
@@ -129,6 +133,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setBackground(new java.awt.Color(95, 108, 247));
+        jLabel8.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(95, 108, 247));
         jLabel8.setText("DOMICILIO");
         jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
@@ -140,6 +145,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setBackground(new java.awt.Color(95, 108, 247));
+        jLabel9.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(95, 108, 247));
         jLabel9.setText("HORARIO");
         jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
@@ -153,6 +159,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setBackground(new java.awt.Color(95, 108, 247));
+        jLabel10.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(95, 108, 247));
         jLabel10.setText("SALARIO");
         jPanel7.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
@@ -164,6 +171,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setBackground(new java.awt.Color(95, 108, 247));
+        jLabel11.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(95, 108, 247));
         jLabel11.setText("LUGAR DE TRABAJO");
         jPanel8.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
@@ -182,6 +190,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setBackground(new java.awt.Color(95, 108, 247));
+        jLabel12.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(95, 108, 247));
         jLabel12.setText("CONTRASEÑA");
         jPanel9.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
@@ -193,6 +202,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setBackground(new java.awt.Color(95, 108, 247));
+        jLabel4.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(95, 108, 247));
         jLabel4.setText("APELLIDO");
         jPanel10.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
@@ -204,6 +214,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setBackground(new java.awt.Color(95, 108, 247));
+        jLabel6.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(95, 108, 247));
         jLabel6.setText("FECHA DE NACIMIENTO");
         jPanel11.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));

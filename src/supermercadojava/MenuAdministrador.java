@@ -136,10 +136,12 @@ public class MenuAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jmiConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiConsultarActionPerformed
+
         // TODO add your handling code here:
         ConsultarEmpleados emp= new ConsultarEmpleados(this.datos);
         emp.setVisible(true);
         this.dispose();
+
     }//GEN-LAST:event_jmiConsultarActionPerformed
 
 
