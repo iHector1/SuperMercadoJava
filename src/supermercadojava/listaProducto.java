@@ -2,61 +2,97 @@
 package supermercadojava;
 
 public class listaProducto {
-   private nodoProducto inicio;
+   public nodoProducto inicio;
+   public int tamano;
 
     public listaProducto() {
         this.inicio = null;
+        this.tamano = 0;
     }
     public void agregar(Producto producto){
         nodoProducto nodo=new nodoProducto(producto);
         if(this.inicio==null){
             this.inicio=nodo;
+            this.tamano++;
         }else{
             nodoProducto aux=inicio;
             while(aux.getNodo()!=null){
                 aux=aux.getNodo();
             }
             aux.setNodo(nodo);
+            this.tamano++;
         }
     }
     public void eliminar(String id){
         if(this.inicio==null){
             System.out.println("lista vacía");
         }else{
-            nodoProducto actual = this.inicio;
-                while (actual.getNodo()!=null && !actual.getNodo().getProducto().getIdentificador().equals(id)){
-                    actual = actual.getNodo();
-                }
-                    if (actual.getNodo()== null )
-                        System.out.println ("elemento "+id+" no esta en la lista");
-                    else{
-                        actual.setNodo(actual.getNodo().getNodo());
-                    }
+            this.inicio = this.inicio.getNodo();
+            this.tamano--;
         }
-        
     } 
-    public int editar(Producto producto){
-        if(this.inicio==null){
-            System.out.println("lista vacía");
-            return -1;
-        }else{
-            nodoProducto actual = this.inicio;
-                while (actual.getNodo()!=null && 
-                        !actual.getNodo().getProducto().getIdentificador()
-                                .equals(producto.getIdentificador())){
-                    actual = actual.getNodo();
-                    if (actual.getNodo()== null ){
-                      System.out.println ("elemento "+producto.getIdentificador()+" no esta en la lista");
-                    return -1;  
+    
+    
+    public Object[] imprimir() {
+      Object[] arreglo = new Object[100];
+      arreglo = null;
+      nodoProducto aux = this.inicio;
+      int i = 0;
+      if (this.tamano !=0) {
+          while(aux.getNodo()!=null) {
+              arreglo[i]=aux.getProducto();
+              System.out.println(aux.getProducto().getNombre());
+              aux = aux.getNodo();
+              i++;
+          }
+      }
+      return arreglo;
+    }
+    
+    public Producto buscar(String id) {
+        Producto produ = new Producto();
+        boolean encontrado = false;
+        if(this.inicio == null) {
+            System.out.println("lista vacia");
+        } else {
+            if(id.equals(this.inicio.getProducto().getIdentificador())) {
+                return this.inicio.getProducto();
+            } else {
+                nodoProducto nodo = this.inicio;
+                while(nodo!=null) {
+                    if(id.equals(nodo.getProducto().getIdentificador())) {
+                        return nodo.getProducto();
                     }
-                        
-                    else{
-                        actual.setProducto(producto);
-                        return 1;
-                    }
+                    nodo=nodo.getNodo();
                 }
+                return null;
+            }
         }
-        return 0;
+        return null;
+    }
+    
+    public String editar(String id, Producto produ) {
+        boolean encontrado = false;
+        if(this.inicio==null) {
+            System.out.println("lista vacia");
+        } else {
+            if(id.equals(this.inicio.getProducto().getIdentificador())) {
+                this.inicio.setProducto(produ);
+                return "Fue editado";
+            } else {
+                nodoProducto nodo=this.inicio;
+                while(nodo!=null) {
+                    if(id.equals(nodo.getProducto().getIdentificador())) {
+                        encontrado=true;
+                        nodo.setProducto(produ);
+                        return "Fue editado";
+                    }
+                    nodo=nodo.getNodo();
+                }
+                return "No se encontro";
+            }
+        }
+        return "No se encontro";
     }
 }
 

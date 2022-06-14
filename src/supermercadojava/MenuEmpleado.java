@@ -118,9 +118,19 @@ public class MenuEmpleado extends javax.swing.JFrame {
         jmProductos.setText("Productos");
 
         jmiRegistrar.setText("Registrar/Modificar");
+        jmiRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiRegistrarActionPerformed(evt);
+            }
+        });
         jmProductos.add(jmiRegistrar);
 
         jmiConsultar.setText("Consultar");
+        jmiConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiConsultarActionPerformed(evt);
+            }
+        });
         jmProductos.add(jmiConsultar);
 
         jMenuBar1.add(jmProductos);
@@ -143,12 +153,26 @@ public class MenuEmpleado extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
+
+    private void jmiRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRegistrarActionPerformed
+        RegistrarProducto produ = new RegistrarProducto(this.datos);
+        produ.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jmiRegistrarActionPerformed
+
+    private void jmiConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiConsultarActionPerformed
+        ConsultarProducto consuProdu = new ConsultarProducto(this.datos);
+        consuProdu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jmiConsultarActionPerformed
+
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         ConsultarCategoria cate=new ConsultarCategoria(this.datos);
         cate.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

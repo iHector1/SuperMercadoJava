@@ -8,6 +8,14 @@ public class Producto {
     private String descripcion;
     private String categoria;
     //constructores
+    
+    public Producto() {
+        this.identificador = "";
+        this.nombre = "";
+        this.precio = 0.0;
+        this.descripcion = "";
+        this.categoria = "";
+    }
 
     public Producto(String identificador, String nombre, double precio, String descripcion, String categoria) {
         this.identificador = identificador;
