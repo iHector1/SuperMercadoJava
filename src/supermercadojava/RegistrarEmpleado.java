@@ -301,6 +301,31 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
         // TODO add your handling code here:
+            if(!this.identificador.getText().isEmpty()||
+                !this.nombre.getText().isEmpty()||
+                !this.apellido.getText().isEmpty()||
+                !this.fechaNacimiento.getText().isEmpty()||
+                !this.domicilio.getText().isEmpty()||
+                !this.salario.getText().isEmpty()||
+                !this.contrasena.getText().isEmpty()||
+                !this.edad.getText().isEmpty()){
+            String nombre=this.nombre.getText();
+            String id=this.identificador.getText();
+            String apellido=this.apellido.getText();
+            String fecha=this.fechaNacimiento.getText();
+            String domicilio=this.domicilio.getText();
+            String contrasena=this.contrasena.getText();
+            double salario=Double.parseDouble(this.salario.getText());
+            int edad=Integer.parseInt(this.edad.getText());
+            Empleado emp=new Empleado(id,this.horoariobox.getSelectedItem().toString(),
+                    salario,this.areacombo.getSelectedItem().toString()
+                    ,contrasena,nombre,apellido,fecha,edad,domicilio);
+            //this.datos.empleados.;
+            this.limpiar();
+            this.mensaje.setText("Empleado Editado");
+        }else{
+            this.mensaje.setText("Llena todos los campos");
+        }
     }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
@@ -328,6 +353,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!this.identificador.getText().isEmpty()){
            int i= this.datos.empleados.buscar(this.identificador.getText());
+           System.out.println(i);
             if(i!=-1){
                 this.encontrado(i);
                 this.mensaje.setText("Empleado encotrado");

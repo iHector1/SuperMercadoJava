@@ -29,6 +29,7 @@ public class listaEmpleados {
         return -1;
     }
     public int buscar(String id){
+        System.out.println(id);
         for(int i= 0;i<this.contador;i++){
             if(id.equals(this.empleados[i].getIdentificador())){
                 return i;
@@ -61,5 +62,11 @@ public class listaEmpleados {
 	}
 	return 1;
     }
-    
+    public Object[] imprimir(){
+        Object[] arreglo =new Object[100];
+        for(int i =0;i<this.contador;i++){
+            arreglo[i]=this.empleados[i];
+        }
+        return arreglo;
+    }    
 }
