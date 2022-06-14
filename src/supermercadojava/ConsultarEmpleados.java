@@ -71,7 +71,7 @@ public class ConsultarEmpleados extends javax.swing.JFrame {
                 jbVolverActionPerformed(evt);
             }
         });
-        jPanel1.add(jbVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(1196, 658, 60, 40));
+        jPanel1.add(jbVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 640, 60, 40));
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

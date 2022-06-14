@@ -80,7 +80,7 @@ public class ConsultarCategoria extends javax.swing.JFrame {
                 jbVolverActionPerformed(evt);
             }
         });
-        jPanel1.add(jbVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(1196, 658, 60, 40));
+        jPanel1.add(jbVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 640, 60, 40));
 
         jLabel13.setBackground(new java.awt.Color(246, 246, 246));
         jLabel13.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N

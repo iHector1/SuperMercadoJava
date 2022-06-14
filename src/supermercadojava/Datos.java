@@ -18,10 +18,10 @@ public class Datos {
     }
     
     private void init(){
-        Empleado em=new Empleado("12","MATUTINO",2500,"Pasillos","1234","David"
-                ,"Loera","12/01/2001",20,"Nueva Escocia");
-        Administrador ad=new Administrador("1","Oficinas","MIXTO",5000,
-                "12/10/2010","4321","Benja","Cortina","2/09/1985",30,"Pablo neruda");
+        Empleado em=new Empleado("Alo","MATUTINO",2500,"Pasillos","12345","Alondra"
+                ,"Yazmín","12/01/2001",20,"AV. AVIACIÓN");
+        Administrador ad=new Administrador("admin","Oficinas","MIXTO",5000,
+                "12/10/2021","admin","BENJAMÍN","CORTINA","11/09/2002",19,"AV. ESCOCIO");
         this.empleados.agregar(em);
         this.admis.agregar(ad);
     }
