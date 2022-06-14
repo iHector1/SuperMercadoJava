@@ -5,6 +5,9 @@
  */
 package supermercadojava;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Benjamín Cortina
@@ -14,8 +17,21 @@ public class ConsultarCategoria extends javax.swing.JFrame {
     /**
      * Creates new form ConsultarCategoria
      */
-    public ConsultarCategoria() {
+    Datos datos;
+    DefaultTableModel table = new DefaultTableModel();
+    
+    public ConsultarCategoria(Datos datos) {
         initComponents();
+        this.datos=datos;
+        String [] columnas= new String[]{"ID","Nombre","Clasificacion","Pasillo"
+                ,"Descripcion"};
+        table.setColumnIdentifiers(columnas);
+        this.tabla.setModel(table);
+        if(this.datos.categoria.inicio==null){ 
+            JOptionPane.showMessageDialog(null, "No hay empleados registrados","Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+           this.mostrar();
+        }
         this.setLocationRelativeTo(null);
     }
 
@@ -30,14 +46,14 @@ public class ConsultarCategoria extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla = new javax.swing.JTable();
         jbVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(235, 124, 112));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -48,9 +64,14 @@ public class ConsultarCategoria extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabla);
 
         jbVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/regreso.png"))); // NOI18N
+        jbVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbVolverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -85,46 +106,27 @@ public class ConsultarCategoria extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConsultarCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConsultarCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConsultarCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConsultarCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void mostrar(){
+        listaCategoria cate=this.datos.categoria;
+        nodoCategoria node=cate.inicio;
+        while(node!=null){
+            System.out.println("holi");
+            Categoria a=node.getCategoria();
+            table.addRow(new Object[]{a.getIdentificador(),a.getNombre(),a.getClasificacion(),a.getLocalizacion(),a.getDescripcion()});
+            node=node.getNodo();
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ConsultarCategoria().setVisible(true);
-            }
-        });
     }
+    private void jbVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverActionPerformed
+        // TODO add your handling code here:
+        MenuEmpleado menu = new MenuEmpleado(this.datos);
+        menu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jbVolverActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton jbVolver;
+    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 }

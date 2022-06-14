@@ -225,6 +225,19 @@ public class RegistrarCategoria extends javax.swing.JFrame {
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
         // TODO add your handling code here:
+        if(!this.identificador.getText().isEmpty()&&!this.nombre.getText().isEmpty()&&!this.descripcion.getText().isEmpty()){
+            String id=this.identificador.getText();
+            String nombre=this.nombre.getText();
+            String clasi=this.clasificacionbox.getSelectedItem().toString();
+            String pasillo=jsbPasillo.getValue()+"";
+            String descripcion=this.descripcion.getText();
+            
+            Categoria cate=new Categoria(id,nombre,clasi,pasillo,descripcion);
+            System.out.println(this.datos.categoria.editar(id,cate));
+            this.mensaje.setText("Categoria editada");
+        }else{
+            this.mensaje.setText("Ingrese todo los datos");
+        }
     }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jbRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegistrarActionPerformed
@@ -260,8 +273,10 @@ public class RegistrarCategoria extends javax.swing.JFrame {
         if(!this.identificador.getText().isEmpty()){
             String id=this.identificador.getText();
             Categoria cate=this.datos.categoria.buscar(id);
+            System.out.println(cate);
             if(cate!=null){
                 this.nombre.setText(cate.getNombre());
+                this.mensaje.setText("Encontrado"); 
             }else{
                 this.mensaje.setText("No se encontro"); 
             }
