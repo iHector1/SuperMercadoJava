@@ -113,9 +113,19 @@ public class MenuEmpleado extends javax.swing.JFrame {
         jmProductos.setText("Productos");
 
         jmiRegistrar.setText("Registrar/Modificar");
+        jmiRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiRegistrarActionPerformed(evt);
+            }
+        });
         jmProductos.add(jmiRegistrar);
 
         jmiConsultar.setText("Consultar");
+        jmiConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiConsultarActionPerformed(evt);
+            }
+        });
         jmProductos.add(jmiConsultar);
 
         jMenuBar1.add(jmProductos);
@@ -137,6 +147,18 @@ public class MenuEmpleado extends javax.swing.JFrame {
         login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void jmiRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRegistrarActionPerformed
+        RegistrarProducto produ = new RegistrarProducto(this.datos);
+        produ.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jmiRegistrarActionPerformed
+
+    private void jmiConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiConsultarActionPerformed
+        ConsultarProducto consuProdu = new ConsultarProducto(this.datos);
+        consuProdu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jmiConsultarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

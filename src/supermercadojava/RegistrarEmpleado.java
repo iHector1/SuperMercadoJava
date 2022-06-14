@@ -333,28 +333,29 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
              //    salario,this.areacombo.getSelectedItem().toString()
              //     ,contrasena,nombre,apellido,fecha,edad,domicilio);
                  
-            if (!this.identificador.getText().isEmpty()) {
-                int i = this.datos.empleados.buscar(this.identificador.getText());
-                System.out.println(i);
-                if (i != -1) {
-                    this.encontrado(i);
-                    Empleado emp = this.datos.empleados.empleados[i];
-                    this.mensaje.setText("Empleado encontrado");
-                    emp.setNombre(nombre);
-                    emp.setApellido(apellido);
-                    emp.setFechaNacimiento(fecha);
-                    emp.setDomicilio(domicilio);
-                    emp.setContrasena(contrasena);
-                    emp.setSalario(salario);
-                    emp.setEdad(edad);
-                    emp.setHorario(this.horoariobox.getSelectedItem().toString());
-                    emp.setArea(this.areacombo.getSelectedItem().toString());
+                if (!this.identificador.getText().isEmpty()) {
+                    int i = this.datos.empleados.buscar(this.identificador.getText());
+                    System.out.println(i);
+                    if (i != -1) {
+                        this.encontrado(i);
+                        Empleado emp = this.datos.empleados.empleados[i];
+                        this.mensaje.setText("Empleado encontrado");
+                        emp.setNombre(nombre);
+                        emp.setApellido(apellido);
+                        emp.setFechaNacimiento(fecha);
+                        emp.setDomicilio(domicilio);
+                        emp.setContrasena(contrasena);
+                        emp.setSalario(salario);
+                        emp.setEdad(edad);
+                        emp.setHorario(this.horoariobox.getSelectedItem().toString());
+                        emp.setArea(this.areacombo.getSelectedItem().toString());
+                    } else {
+                        this.mensaje.setText("Empleado no encontrado");
+                    }
                 } else {
-                    this.mensaje.setText("Empleado no encontrado");
+                    this.mensaje.setText("Llena el campo de identificador");
                 }
-            } else {
-                this.mensaje.setText("Llena el campo de identificador");
-            }
+                //this.empleados.empleados;
             this.limpiar();
             this.mensaje.setText("Empleado Editado");
         } else {
