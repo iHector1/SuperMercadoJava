@@ -39,6 +39,7 @@ public class listaCategoria {
                         System.out.println ("elemento "+id+" no esta en la lista");
                     else{
                         nodo.setNodo(nodo.getNodo().getNodo());
+                        System.out.println ("elemento "+id+" eliminado");
                         tamano--;
                     }
            }
@@ -46,20 +47,26 @@ public class listaCategoria {
     }
     public Categoria buscar(String id){
         Categoria cate;
-        if(this.inicio==null){
+        boolean encontrado=false;
+        
+         if(this.inicio==null){
             System.out.println("lista vacía");
         }else{
-            nodoCategoria actual = this.inicio;
-                while (actual.getNodo()!=null&& !actual.getNodo().getCategoria().getIdentificador().equals(id)){
-                    actual = actual.getNodo();
-                }
-                    if (actual.getNodo()== null){
-                     return null;   
-                    } 
-                    else{
-                        cate=actual.getCategoria();
+           if(id.equals(this.inicio.getCategoria().getIdentificador())){
+               return this.inicio.getCategoria();
+           }else{
+               nodoCategoria nodo=this.inicio;
+               while (nodo.getNodo()!=null&& encontrado!=true ){
+                   System.out.println(nodo.getCategoria().equals(id));
+                   if (nodo.getCategoria().equals(id)){
+                       cate=nodo.getCategoria();
+                        System.out.println ("elemento "+id+" la lista");
                         return cate;
+                    }else{
+                        nodo = nodo.getNodo();
                     }
+               }
+           }
         }
         return null;
     }
