@@ -20,9 +20,12 @@ public class Datos {
     private void init(){
         Empleado em=new Empleado("Alo","MATUTINO",2500,"Pasillos","12345","Alondra"
                 ,"Yazmín","12/01/2001",20,"AV. AVIACIÓN");
+        Empleado em1=new Empleado("iHector","VESPERTINO",2500,"Vendedor","54321","Héctor"
+                ,"González","12/01/2003",25,"TLAYORK");
         Administrador ad=new Administrador("admin","Oficinas","MIXTO",5000,
                 "12/10/2021","admin","BENJAMÍN","CORTINA","11/09/2002",19,"AV. ESCOCIO");
         this.empleados.agregar(em);
+        this.empleados.agregar(em1);
         this.admis.agregar(ad);
     }
     
