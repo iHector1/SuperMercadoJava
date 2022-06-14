@@ -2,8 +2,8 @@
 package supermercadojava;
 
 public class listaCategoria {
-    private nodoCategoria inicio;
-    private int tamano;
+    public nodoCategoria inicio;
+    public int tamano;
 
     public listaCategoria() {
         this.inicio = null;
@@ -20,47 +20,76 @@ public class listaCategoria {
                 aux=aux.getNodo();
             }
             aux.setNodo(nodo);
-            this.tamano=0;
+            this.tamano++;
         }
     }
     public void eliminar(String id){
         if(this.inicio==null){
             System.out.println("lista vacía");
         }else{
-           if(id.equals(this.inicio.getCategoria().getIdentificador())){
-               this.inicio=this.inicio.getNodo();
-               this.tamano--;
-           }else{
-               nodoCategoria nodo=this.inicio;
-               while (nodo.getNodo()!=null && nodo.getNodo().getCategoria().getIdentificador().equals(id)){
-                   nodo = nodo.getNodo();
-               }
-                    if (nodo.getNodo()== null )
-                        System.out.println ("elemento "+id+" no esta en la lista");
-                    else{
-                        nodo.setNodo(nodo.getNodo().getNodo());
-                        tamano--;
-                    }
-           }
+           this.inicio=this.inicio.getNodo();
+           this.tamano--;
         }
     }
+    public Object[] imprimir(){
+        Object[] arreglo = new Object[100];
+        arreglo=null;
+        nodoCategoria aux=this.inicio;
+        int i=0;
+        if(this.tamano!=0){
+           while(aux.getNodo()!=null){
+            arreglo[i]=aux.getCategoria();
+            System.out.println(aux.getCategoria().getNombre());
+            aux=aux.getNodo();
+            i++;
+        } 
+        }
+        
+        return arreglo;
+    }
     public Categoria buscar(String id){
-        Categoria cate;
-        if(this.inicio==null){
+        Categoria cate=new Categoria();
+        boolean encontrado=false;
+         if(this.inicio==null){
             System.out.println("lista vacía");
         }else{
-            nodoCategoria actual = this.inicio;
-                while (actual.getNodo()!=null&& !actual.getNodo().getCategoria().getIdentificador().equals(id)){
-                    actual = actual.getNodo();
-                }
-                    if (actual.getNodo()== null){
-                     return null;   
-                    } 
-                    else{
-                        cate=actual.getCategoria();
-                        return cate;
-                    }
+           if(id.equals(this.inicio.getCategoria().getIdentificador())){
+               return this.inicio.getCategoria();
+           }else{
+               nodoCategoria nodo=this.inicio;
+               while (nodo!=null){
+                   if(id.equals(nodo.getCategoria().getIdentificador())){
+                       return nodo.getCategoria();
+                   }
+                   nodo=nodo.getNodo();
+               }
+               return null;
+           }
         }
         return null;
+    }
+    
+    public String editar(String id,Categoria cate){
+        boolean encontrado=false;
+         if(this.inicio==null){
+            System.out.println("lista vacía");
+        }else{
+           if(id.equals(this.inicio.getCategoria().getIdentificador())){
+               this.inicio.setCategoria(cate);
+               return "Fue editado";
+           }else{
+               nodoCategoria nodo=this.inicio;
+               while (nodo!=null){
+                   if(id.equals(nodo.getCategoria().getIdentificador())){
+                       encontrado=true;
+                       nodo.setCategoria(cate);
+                       return "Fue editado";
+                   }
+                   nodo=nodo.getNodo();
+               }
+               return "No se encontro";
+           }
+        }
+        return "No se encontro";
     }
 }

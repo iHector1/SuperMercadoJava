@@ -18,7 +18,7 @@ public class MenuEmpleado extends javax.swing.JFrame {
     /**
      * Creates new form MenuEmpleado
      */
-        Image img = new ImageIcon("src/imagenes/empleado.png").getImage();
+    Image img = new ImageIcon("src/imagenes/empleado.png").getImage();
     ImageIcon icon = new ImageIcon(img.getScaledInstance(100, 124, Image.SCALE_SMOOTH));
     Datos datos;
     public MenuEmpleado(Datos datos) {
@@ -106,6 +106,11 @@ public class MenuEmpleado extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Consultar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
@@ -148,6 +153,7 @@ public class MenuEmpleado extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
+
     private void jmiRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiRegistrarActionPerformed
         RegistrarProducto produ = new RegistrarProducto(this.datos);
         produ.setVisible(true);
@@ -159,6 +165,14 @@ public class MenuEmpleado extends javax.swing.JFrame {
         consuProdu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jmiConsultarActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        ConsultarCategoria cate=new ConsultarCategoria(this.datos);
+        cate.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

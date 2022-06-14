@@ -7,7 +7,13 @@ public class Categoria {
     private String clasificacion;
     private String descripcion;
     private String localizacion; 
-    
+    public Categoria(){
+        this.identificador = "";
+        this.nombre = "";
+        this.clasificacion = "";
+        this.descripcion = "";
+        this.localizacion = "";
+    }
     //constructor
     public Categoria(String identificador, String nombre, String clasificacion, String localizacion,String descripcion) {
         this.identificador = identificador;

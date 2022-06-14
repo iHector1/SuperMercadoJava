@@ -2,21 +2,25 @@
 package supermercadojava;
 
 public class listaProducto {
-   private nodoProducto inicio;
+   public nodoProducto inicio;
+   public int tamano;
 
     public listaProducto() {
         this.inicio = null;
+        this.tamano = 0;
     }
     public void agregar(Producto producto){
         nodoProducto nodo=new nodoProducto(producto);
         if(this.inicio==null){
             this.inicio=nodo;
+            this.tamano++;
         }else{
             nodoProducto aux=inicio;
             while(aux.getNodo()!=null){
                 aux=aux.getNodo();
             }
             aux.setNodo(nodo);
+            this.tamano++;
         }
     }
     public void eliminar(String id){
@@ -33,7 +37,6 @@ public class listaProducto {
                         actual.setNodo(actual.getNodo().getNodo());
                     }
         }
-        
     } 
     public int editar(Producto producto){
         if(this.inicio==null){
