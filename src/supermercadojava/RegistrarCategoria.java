@@ -17,6 +17,7 @@ public class RegistrarCategoria extends javax.swing.JFrame {
     public RegistrarCategoria() {
         initComponents();
         this.setLocationRelativeTo(null);
+        pasillo.setText("Pasillo: ");
     }
 
     /**
@@ -42,17 +43,18 @@ public class RegistrarCategoria extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jsbPasillo = new javax.swing.JScrollBar();
+        pasillo = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         mensaje = new javax.swing.JLabel();
         jbVolver = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jbModificar = new javax.swing.JButton();
+        jbRegistrar = new javax.swing.JButton();
+        jbEliminar = new javax.swing.JButton();
+        jbBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(620, 650));
@@ -64,18 +66,18 @@ public class RegistrarCategoria extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(246, 246, 246));
         jLabel2.setText("O USE EL IDENTIFICADOR PARA BUSCAR Y/O MODIFICAR");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 48, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 37, -1, -1));
 
         jLabel13.setBackground(new java.awt.Color(246, 246, 246));
         jLabel13.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(246, 246, 246));
         jLabel13.setText("INTRODUZCA LOS DATOS PARA REGISTRAR UNA NUEVA CATEGORIA");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 22, -1, -1));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 11, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(254, 232, 238));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel1.setText("IDENTIFICADOR");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
         jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 100, -1));
@@ -85,7 +87,7 @@ public class RegistrarCategoria extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(254, 232, 238));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel3.setText("NOMBRE DE CATEGORÍA");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
         jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 100, -1));
@@ -95,7 +97,7 @@ public class RegistrarCategoria extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(252, 198, 198));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel6.setText("CATEGORÍA");
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
@@ -107,19 +109,33 @@ public class RegistrarCategoria extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(252, 198, 198));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel5.setText("LOCALIZACIÓN");
         jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel5.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
+        jsbPasillo.setOrientation(javax.swing.JScrollBar.HORIZONTAL);
+        jsbPasillo.setVisibleAmount(90);
+        jsbPasillo.addAdjustmentListener(new java.awt.event.AdjustmentListener() {
+            public void adjustmentValueChanged(java.awt.event.AdjustmentEvent evt) {
+                jsbPasilloAdjustmentValueChanged(evt);
+            }
+        });
+        jPanel5.add(jsbPasillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 140, -1));
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 280, 40));
+        pasillo.setEditable(false);
+        pasillo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pasilloActionPerformed(evt);
+            }
+        });
+        jPanel5.add(pasillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 10, 100, -1));
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 500, 40));
 
         jPanel6.setBackground(new java.awt.Color(250, 163, 163));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel4.setText("DESCRIPCIÓN");
         jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
@@ -147,21 +163,21 @@ public class RegistrarCategoria extends javax.swing.JFrame {
         });
         jPanel1.add(jbVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 600, 60, 40));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/editar.png"))); // NOI18N
-        jButton1.setText("MODIFICAR");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 510, 140, 40));
+        jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/editar.png"))); // NOI18N
+        jbModificar.setText("MODIFICAR");
+        jPanel1.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 510, 140, 40));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar.png"))); // NOI18N
-        jButton2.setText("REGISTRAR");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 510, 140, 40));
+        jbRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar.png"))); // NOI18N
+        jbRegistrar.setText("REGISTRAR");
+        jPanel1.add(jbRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 510, 140, 40));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
-        jButton3.setText("ELIMINAR");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 510, 140, 40));
+        jbEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
+        jbEliminar.setText("ELIMINAR");
+        jPanel1.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 510, 140, 40));
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
-        jButton4.setText("BUSCAR");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(478, 510, 140, 40));
+        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
+        jbBuscar.setText("BUSCAR");
+        jPanel1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(478, 510, 140, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 650));
 
@@ -172,6 +188,14 @@ public class RegistrarCategoria extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_jbVolverActionPerformed
+
+    private void pasilloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasilloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pasilloActionPerformed
+
+    private void jsbPasilloAdjustmentValueChanged(java.awt.event.AdjustmentEvent evt) {//GEN-FIRST:event_jsbPasilloAdjustmentValueChanged
+        pasillo.setText("Pasillo: " + jsbPasillo.getValue());
+    }//GEN-LAST:event_jsbPasilloAdjustmentValueChanged
 
     /**
      * @param args the command line arguments
@@ -209,11 +233,6 @@ public class RegistrarCategoria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
@@ -232,7 +251,13 @@ public class RegistrarCategoria extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton jbBuscar;
+    private javax.swing.JButton jbEliminar;
+    private javax.swing.JButton jbModificar;
+    private javax.swing.JButton jbRegistrar;
     private javax.swing.JButton jbVolver;
+    private javax.swing.JScrollBar jsbPasillo;
     private javax.swing.JLabel mensaje;
+    private javax.swing.JTextField pasillo;
     // End of variables declaration//GEN-END:variables
 }
