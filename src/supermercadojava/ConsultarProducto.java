@@ -5,6 +5,8 @@
  */
 package supermercadojava;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Benjamín Cortina
@@ -17,6 +19,7 @@ public class ConsultarProducto extends javax.swing.JFrame {
     Datos datos;
     public ConsultarProducto(Datos datos) {
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/factura.png")).getImage());
         this.datos = datos;
         this.setLocationRelativeTo(null);
     }
@@ -34,10 +37,14 @@ public class ConsultarProducto extends javax.swing.JFrame {
         jbVolver = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(137, 187, 240));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jbVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/regreso.png"))); // NOI18N
         jbVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -45,6 +52,7 @@ public class ConsultarProducto extends javax.swing.JFrame {
                 jbVolverActionPerformed(evt);
             }
         });
+        jPanel1.add(jbVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(1196, 658, 60, 40));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -59,25 +67,19 @@ public class ConsultarProducto extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(290, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(276, 276, 276)
-                .addComponent(jbVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
-        );
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 1280, 92));
+
+        jLabel13.setBackground(new java.awt.Color(246, 246, 246));
+        jLabel13.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(246, 246, 246));
+        jLabel13.setText("MOSTRANDO DATOS RECOPILADOS HASTA EL MOMENTO");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, -1, -1));
+
+        jLabel14.setBackground(new java.awt.Color(246, 246, 246));
+        jLabel14.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(246, 246, 246));
+        jLabel14.setText("DEL REGISTRO DE PRODUCTOS");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,6 +103,8 @@ public class ConsultarProducto extends javax.swing.JFrame {
 
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

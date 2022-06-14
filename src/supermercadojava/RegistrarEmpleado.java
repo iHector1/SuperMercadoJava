@@ -5,6 +5,8 @@
  */
 package supermercadojava;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Benjamín Cortina
@@ -20,6 +22,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
         initComponents();
         this.datos = datos;
         this.setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/empleado.png")).getImage());
     }
 
     /**
@@ -73,6 +76,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(620, 650));
+        setResizable(false);
         setSize(new java.awt.Dimension(620, 650));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
