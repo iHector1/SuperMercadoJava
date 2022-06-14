@@ -45,10 +45,20 @@ public class listaCategoria {
            }
         }
     }
+    public Object[] imprimir(){
+        Object[] arreglo = new Object[100];
+        nodoCategoria aux=this.inicio;
+        int i=0;
+        while(aux.getNodo()!=null){
+            arreglo[0]=this.inicio.getCategoria();
+            aux=aux.getNodo();
+            i++;
+        }
+        return arreglo;
+    }
     public Categoria buscar(String id){
         Categoria cate;
         boolean encontrado=false;
-        
          if(this.inicio==null){
             System.out.println("lista vacía");
         }else{
