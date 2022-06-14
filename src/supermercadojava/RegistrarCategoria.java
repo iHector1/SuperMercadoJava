@@ -14,10 +14,12 @@ public class RegistrarCategoria extends javax.swing.JFrame {
     /**
      * Creates new form RegistrarCategoria
      */
-    public RegistrarCategoria() {
+    Datos datos;
+    public RegistrarCategoria(Datos datos) {
         initComponents();
         this.setLocationRelativeTo(null);
         pasillo.setText("Pasillo: ");
+        this.datos=datos;
     }
 
     /**
@@ -34,13 +36,13 @@ public class RegistrarCategoria extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        identificador = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        nombre = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        clasificacionbox = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jsbPasillo = new javax.swing.JScrollBar();
@@ -48,7 +50,7 @@ public class RegistrarCategoria extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        descripcion = new javax.swing.JTextArea();
         mensaje = new javax.swing.JLabel();
         jbVolver = new javax.swing.JButton();
         jbModificar = new javax.swing.JButton();
@@ -80,7 +82,7 @@ public class RegistrarCategoria extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel1.setText("IDENTIFICADOR");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 100, -1));
+        jPanel2.add(identificador, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 100, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 280, 40));
 
@@ -90,7 +92,7 @@ public class RegistrarCategoria extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel3.setText("NOMBRE DE CATEGORÍA");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 100, -1));
+        jPanel3.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 100, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 280, 40));
 
@@ -98,11 +100,11 @@ public class RegistrarCategoria extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        jLabel6.setText("CATEGORÍA");
+        jLabel6.setText("CLASIFICACION");
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel4.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
+        clasificacionbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alimenticio", "No Alimenticio" }));
+        jPanel4.add(clasificacionbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 280, 40));
 
@@ -139,10 +141,10 @@ public class RegistrarCategoria extends javax.swing.JFrame {
         jLabel4.setText("DESCRIPCIÓN");
         jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        descripcion.setColumns(20);
+        descripcion.setLineWrap(true);
+        descripcion.setRows(5);
+        jScrollPane1.setViewportView(descripcion);
 
         jPanel6.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 330, -1));
 
@@ -174,14 +176,29 @@ public class RegistrarCategoria extends javax.swing.JFrame {
 
         jbRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar.png"))); // NOI18N
         jbRegistrar.setText("REGISTRAR");
+        jbRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbRegistrarActionPerformed(evt);
+            }
+        });
         jPanel1.add(jbRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 510, 140, 40));
 
         jbEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         jbEliminar.setText("ELIMINAR");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
         jPanel1.add(jbEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 510, 140, 40));
 
         jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
         jbBuscar.setText("BUSCAR");
+        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuscarActionPerformed(evt);
+            }
+        });
         jPanel1.add(jbBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(478, 510, 140, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 650));
@@ -191,6 +208,9 @@ public class RegistrarCategoria extends javax.swing.JFrame {
 
     private void jbVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverActionPerformed
         // TODO add your handling code here:
+        MenuEmpleado menu=new MenuEmpleado(this.datos);
+        menu.setVisible(true);
+        this.dispose();
 
     }//GEN-LAST:event_jbVolverActionPerformed
 
@@ -199,50 +219,61 @@ public class RegistrarCategoria extends javax.swing.JFrame {
     }//GEN-LAST:event_pasilloActionPerformed
 
     private void jsbPasilloAdjustmentValueChanged(java.awt.event.AdjustmentEvent evt) {//GEN-FIRST:event_jsbPasilloAdjustmentValueChanged
-        pasillo.setText("Pasillo: " + jsbPasillo.getValue());
+        pasillo.setText("Pasillo: "+jsbPasillo.getValue());
     }//GEN-LAST:event_jsbPasilloAdjustmentValueChanged
+
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbModificarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistrarCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistrarCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistrarCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistrarCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void jbRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegistrarActionPerformed
+        // TODO add your handling code here:
+        if(!this.identificador.getText().isEmpty()&&!this.nombre.getText().isEmpty()&&!this.descripcion.getText().isEmpty()){
+            String id=this.identificador.getText();
+            String nombre=this.nombre.getText();
+            String clasi=this.clasificacionbox.getSelectedItem().toString();
+            String pasillo=jsbPasillo.getValue()+"";
+            String descripcion=this.descripcion.getText();
+            
+            Categoria cate=new Categoria(id,nombre,clasi,pasillo,descripcion);
+            this.datos.categoria.agregar(cate);
+            this.mensaje.setText("Categoria Agregada");
+        }else{
+            this.mensaje.setText("Ingrese todo los datos");
         }
-        //</editor-fold>
+    }//GEN-LAST:event_jbRegistrarActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RegistrarCategoria().setVisible(true);
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+        // TODO add your handling code here:
+        if(!this.identificador.getText().isEmpty()){
+            String id=this.identificador.getText();
+            this.datos.categoria.eliminar(id);
+            this.mensaje.setText("La categoria ha sido eliminada");
+        }else{
+            this.mensaje.setText("Ingrese el identificador");
+        }
+    }//GEN-LAST:event_jbEliminarActionPerformed
+
+    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
+        // TODO add your handling code here:
+        if(!this.identificador.getText().isEmpty()){
+            String id=this.identificador.getText();
+            Categoria cate=this.datos.categoria.buscar(id);
+            if(cate!=null){
+                this.nombre.setText(cate.getNombre());
+            }else{
+                this.mensaje.setText("No se encontro"); 
             }
-        });
-    }
+        }else{
+           this.mensaje.setText("Ingrese el identificador"); 
+        }
+    }//GEN-LAST:event_jbBuscarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> clasificacionbox;
+    private javax.swing.JTextArea descripcion;
+    private javax.swing.JTextField identificador;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
@@ -257,9 +288,6 @@ public class RegistrarCategoria extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbModificar;
@@ -267,6 +295,7 @@ public class RegistrarCategoria extends javax.swing.JFrame {
     private javax.swing.JButton jbVolver;
     private javax.swing.JScrollBar jsbPasillo;
     private javax.swing.JLabel mensaje;
+    private javax.swing.JTextField nombre;
     private javax.swing.JTextField pasillo;
     // End of variables declaration//GEN-END:variables
 }
