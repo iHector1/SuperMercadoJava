@@ -5,6 +5,7 @@
  */
 package supermercadojava;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,6 +23,7 @@ public class ConsultarEmpleados extends javax.swing.JFrame {
     DefaultTableModel table = new DefaultTableModel();
     public ConsultarEmpleados(Datos datos) {
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/listaEmpleados.png")).getImage());
         this.setLocationRelativeTo(null);
         this.datos=datos;
         String [] columnas= new String[]{"ID","Nombre","Apellido","Fecha de nacimiento"
@@ -54,10 +56,14 @@ public class ConsultarEmpleados extends javax.swing.JFrame {
         jbVolver = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla = new javax.swing.JTable();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(146, 79, 246));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jbVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/regreso.png"))); // NOI18N
         jbVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +71,7 @@ public class ConsultarEmpleados extends javax.swing.JFrame {
                 jbVolverActionPerformed(evt);
             }
         });
+        jPanel1.add(jbVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(1196, 658, 60, 40));
 
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -79,25 +86,19 @@ public class ConsultarEmpleados extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tabla);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(1196, Short.MAX_VALUE)
-                .addComponent(jbVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(289, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(278, 278, 278)
-                .addComponent(jbVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
-        );
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 289, 1280, 91));
+
+        jLabel13.setBackground(new java.awt.Color(246, 246, 246));
+        jLabel13.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(246, 246, 246));
+        jLabel13.setText("MOSTRANDO DATOS RECOPILADOS HASTA EL MOMENTO");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, -1, -1));
+
+        jLabel14.setBackground(new java.awt.Color(246, 246, 246));
+        jLabel14.setFont(new java.awt.Font("Dialog", 0, 15)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(246, 246, 246));
+        jLabel14.setText("DEL REGISTRO DE EMPLEADOS");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,6 +122,8 @@ public class ConsultarEmpleados extends javax.swing.JFrame {
     }//GEN-LAST:event_jbVolverActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jbVolver;

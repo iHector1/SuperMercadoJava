@@ -5,6 +5,8 @@
  */
 package supermercadojava;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Benjamín Cortina
@@ -21,6 +23,7 @@ public class RegistrarCategoria extends javax.swing.JFrame {
         this.pasillo.setText("Pasillo: ");
         this.jsbPasillo.setValue(1);
         this.datos=datos;
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/categorias.png")).getImage());
     }
 
     /**
@@ -60,6 +63,7 @@ public class RegistrarCategoria extends javax.swing.JFrame {
         jbBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         setSize(new java.awt.Dimension(620, 650));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

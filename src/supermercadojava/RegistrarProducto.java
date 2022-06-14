@@ -5,7 +5,9 @@
  */
 package supermercadojava;
 
+
 import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -24,6 +26,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
         this.datos = datos;
         this.categorias();
         this.setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/supermercadoIcon.png")).getImage());
     }
 
     /**
@@ -62,6 +65,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
         jbVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         setSize(new java.awt.Dimension(620, 800));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
