@@ -18,7 +18,10 @@ public class listaEmpleados {
        }else{
        }
     }
-
+    
+  //  public int editar(String id) {
+        
+  //  }
     
     public int buscar(String id,String contrasena){
         for(int i= 0;i<this.contador;i++){
