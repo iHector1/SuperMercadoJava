@@ -18,7 +18,8 @@ public class RegistrarCategoria extends javax.swing.JFrame {
     public RegistrarCategoria(Datos datos) {
         initComponents();
         this.setLocationRelativeTo(null);
-        pasillo.setText("Pasillo: ");
+        this.pasillo.setText("Pasillo: ");
+        this.jsbPasillo.setValue(1);
         this.datos=datos;
     }
 
@@ -104,6 +105,11 @@ public class RegistrarCategoria extends javax.swing.JFrame {
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         clasificacionbox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alimenticio", "No Alimenticio" }));
+        clasificacionbox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clasificacionboxActionPerformed(evt);
+            }
+        });
         jPanel4.add(clasificacionbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 280, 40));
@@ -219,7 +225,7 @@ public class RegistrarCategoria extends javax.swing.JFrame {
     }//GEN-LAST:event_pasilloActionPerformed
 
     private void jsbPasilloAdjustmentValueChanged(java.awt.event.AdjustmentEvent evt) {//GEN-FIRST:event_jsbPasilloAdjustmentValueChanged
-        pasillo.setText("Pasillo: "+jsbPasillo.getValue());
+        this.pasillo.setText("Pasillo: "+jsbPasillo.getValue());
     }//GEN-LAST:event_jsbPasilloAdjustmentValueChanged
 
 
@@ -231,10 +237,9 @@ public class RegistrarCategoria extends javax.swing.JFrame {
             String clasi=this.clasificacionbox.getSelectedItem().toString();
             String pasillo=jsbPasillo.getValue()+"";
             String descripcion=this.descripcion.getText();
-            
+            this.limpiar();
             Categoria cate=new Categoria(id,nombre,clasi,pasillo,descripcion);
-            System.out.println(this.datos.categoria.editar(id,cate));
-            this.mensaje.setText("Categoria editada");
+            this.mensaje.setText(this.datos.categoria.editar(id,cate));
         }else{
             this.mensaje.setText("Ingrese todo los datos");
         }
@@ -248,9 +253,10 @@ public class RegistrarCategoria extends javax.swing.JFrame {
             String clasi=this.clasificacionbox.getSelectedItem().toString();
             String pasillo=jsbPasillo.getValue()+"";
             String descripcion=this.descripcion.getText();
-            
+            this.pasillo.setText("Pasillo: "+jsbPasillo.getValue());
             Categoria cate=new Categoria(id,nombre,clasi,pasillo,descripcion);
             this.datos.categoria.agregar(cate);
+            this.limpiar();
             this.mensaje.setText("Categoria Agregada");
         }else{
             this.mensaje.setText("Ingrese todo los datos");
@@ -267,15 +273,29 @@ public class RegistrarCategoria extends javax.swing.JFrame {
             this.mensaje.setText("Ingrese el identificador");
         }
     }//GEN-LAST:event_jbEliminarActionPerformed
-
+private void limpiar(){
+    this.identificador.setText("");
+    this.descripcion.setText("");
+    this.nombre.setText("");
+    this.jsbPasillo.setValue(1);
+}
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         // TODO add your handling code here:
         if(!this.identificador.getText().isEmpty()){
             String id=this.identificador.getText();
             Categoria cate=this.datos.categoria.buscar(id);
+            
             System.out.println(cate);
             if(cate!=null){
                 this.nombre.setText(cate.getNombre());
+                this.pasillo.setText("Pasillo: "+cate.getLocalizacion());
+                this.descripcion.setText(cate.getDescripcion());
+                this.jsbPasillo.setValue(Integer.parseInt(cate.getLocalizacion()));
+                if(cate.getClasificacion()=="Alimenticio"){
+                    this.clasificacionbox.setSelectedIndex(0);
+                }else{
+                    this.clasificacionbox.setSelectedIndex(1);
+                }
                 this.mensaje.setText("Encontrado"); 
             }else{
                 this.mensaje.setText("No se encontro"); 
@@ -284,6 +304,10 @@ public class RegistrarCategoria extends javax.swing.JFrame {
            this.mensaje.setText("Ingrese el identificador"); 
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
+
+    private void clasificacionboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clasificacionboxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clasificacionboxActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> clasificacionbox;
