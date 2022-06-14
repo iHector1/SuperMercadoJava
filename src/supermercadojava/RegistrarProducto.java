@@ -18,6 +18,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
     public RegistrarProducto(Datos datos) {
         initComponents();
         this.datos = datos;
+        this.categorias();
         this.setLocationRelativeTo(null);
     }
 
@@ -35,20 +36,20 @@ public class RegistrarProducto extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        identificador = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        nombre = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        precio = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        descripcion = new javax.swing.JTextArea();
         jPanel6 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        categoria = new javax.swing.JComboBox<>();
         mensaje = new javax.swing.JLabel();
         jbModificar = new javax.swing.JButton();
         jbRegistrar = new javax.swing.JButton();
@@ -80,7 +81,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel1.setText("IDENTIFICADOR");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 100, -1));
+        jPanel2.add(identificador, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 100, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 280, 40));
 
@@ -90,7 +91,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel3.setText("NOMBRE DEL PRODUCTO");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 100, -1));
+        jPanel3.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 100, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 280, 40));
 
@@ -100,7 +101,7 @@ public class RegistrarProducto extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel4.setText("PRECIO");
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-        jPanel4.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 100, -1));
+        jPanel4.add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 100, -1));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 280, 40));
 
@@ -111,10 +112,10 @@ public class RegistrarProducto extends javax.swing.JFrame {
         jLabel5.setText("DESCRIPCIÓN");
         jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        descripcion.setColumns(20);
+        descripcion.setLineWrap(true);
+        descripcion.setRows(5);
+        jScrollPane1.setViewportView(descripcion);
 
         jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 330, -1));
 
@@ -124,11 +125,15 @@ public class RegistrarProducto extends javax.swing.JFrame {
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        jLabel6.setText("CANTIDAD");
+        jLabel6.setText("CATEGORIA");
         jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel6.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
+        categoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                categoriaActionPerformed(evt);
+            }
+        });
+        jPanel6.add(categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 280, 40));
 
@@ -172,7 +177,16 @@ public class RegistrarProducto extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private void categorias(){
+        listaCategoria cate=this.datos.categoria;
+        nodoCategoria node=cate.inicio;
+        while(node!=null){
+            System.out.println("holi");
+            Categoria a=node.getCategoria();
+            this.categoria.addItem(a.getNombre());
+            node=node.getNodo();
+        }
+    }
     private void jbVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverActionPerformed
       MenuEmpleado menuEmpleado = new MenuEmpleado(this.datos);
       menuEmpleado.setVisible(true);
@@ -183,9 +197,15 @@ public class RegistrarProducto extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jbRegistrarActionPerformed
 
+    private void categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_categoriaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> categoria;
+    private javax.swing.JTextArea descripcion;
+    private javax.swing.JTextField identificador;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
@@ -200,15 +220,13 @@ public class RegistrarProducto extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbModificar;
     private javax.swing.JButton jbRegistrar;
     private javax.swing.JButton jbVolver;
     private javax.swing.JLabel mensaje;
+    private javax.swing.JTextField nombre;
+    private javax.swing.JTextField precio;
     // End of variables declaration//GEN-END:variables
 }

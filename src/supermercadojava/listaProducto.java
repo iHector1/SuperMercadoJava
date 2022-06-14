@@ -39,7 +39,7 @@ public class listaProducto {
       nodoProducto aux = this.inicio;
       int i = 0;
       if (this.tamano !=0) {
-          while(aux.getNodo()!=null) {
+          while(aux!=null) {
               arreglo[i]=aux.getProducto();
               System.out.println(aux.getProducto().getNombre());
               aux = aux.getNodo();
