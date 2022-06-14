@@ -15,6 +15,7 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
      * Creates new form RegistrarEmpleado
      */
     Datos datos;
+
     public RegistrarEmpleado(Datos datos) {
         initComponents();
         this.datos = datos;
@@ -283,132 +284,154 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
 
     private void jbRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegistrarActionPerformed
         // TODO add your handling code here:
-                if(!this.identificador.getText().isEmpty()||
-                !this.nombre.getText().isEmpty()||
-                !this.apellido.getText().isEmpty()||
-                !this.fechaNacimiento.getText().isEmpty()||
-                !this.domicilio.getText().isEmpty()||
-                !this.salario.getText().isEmpty()||
-                !this.contrasena.getText().isEmpty()||
-                !this.edad.getText().isEmpty()){
-            String nombre=this.nombre.getText();
-            String id=this.identificador.getText();
-            String apellido=this.apellido.getText();
-            String fecha=this.fechaNacimiento.getText();
-            String domicilio=this.domicilio.getText();
-            String contrasena=this.contrasena.getText();
-            double salario=Double.parseDouble(this.salario.getText());
-            int edad=Integer.parseInt(this.edad.getText());
-            Empleado emp=new Empleado(id,this.horoariobox.getSelectedItem().toString(),
-                    salario,this.areacombo.getSelectedItem().toString()
-                    ,contrasena,nombre,apellido,fecha,edad,domicilio);
+        if (!this.identificador.getText().isEmpty()
+                && !this.nombre.getText().isEmpty()
+                && !this.apellido.getText().isEmpty()
+                && !this.fechaNacimiento.getText().isEmpty()
+                && !this.domicilio.getText().isEmpty()
+                && !this.salario.getText().isEmpty()
+                && !this.contrasena.getText().isEmpty()
+                && !this.edad.getText().isEmpty()) {
+            String nombre = this.nombre.getText();
+            String id = this.identificador.getText();
+            String apellido = this.apellido.getText();
+            String fecha = this.fechaNacimiento.getText();
+            String domicilio = this.domicilio.getText();
+            String contrasena = this.contrasena.getText();
+            double salario = Double.parseDouble(this.salario.getText());
+            int edad = Integer.parseInt(this.edad.getText());
+            Empleado emp = new Empleado(id, this.horoariobox.getSelectedItem().toString(),
+                    salario, this.areacombo.getSelectedItem().toString(),
+                     contrasena, nombre, apellido, fecha, edad, domicilio);
             this.datos.empleados.agregar(emp);
             this.limpiar();
             this.mensaje.setText("Empleado Registrado");
-        }else{
+        } else {
             this.mensaje.setText("Llena todos los campos");
         }
     }//GEN-LAST:event_jbRegistrarActionPerformed
 
     private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
         // TODO add your handling code here:
-            if(!this.identificador.getText().isEmpty()||
-                !this.nombre.getText().isEmpty()||
-                !this.apellido.getText().isEmpty()||
-                !this.fechaNacimiento.getText().isEmpty()||
-                !this.domicilio.getText().isEmpty()||
-                !this.salario.getText().isEmpty()||
-                !this.contrasena.getText().isEmpty()||
-                !this.edad.getText().isEmpty()){
-            String nombre=this.nombre.getText();
-            String id=this.identificador.getText();
-            String apellido=this.apellido.getText();
-            String fecha=this.fechaNacimiento.getText();
-            String domicilio=this.domicilio.getText();
-            String contrasena=this.contrasena.getText();
-            double salario=Double.parseDouble(this.salario.getText());
-            int edad=Integer.parseInt(this.edad.getText());
-            Empleado emp=new Empleado(id,this.horoariobox.getSelectedItem().toString(),
-                    salario,this.areacombo.getSelectedItem().toString()
-                    ,contrasena,nombre,apellido,fecha,edad,domicilio);
-            //this.datos.empleados.;
+        if (!this.identificador.getText().isEmpty()
+                && !this.nombre.getText().isEmpty()
+                && !this.apellido.getText().isEmpty()
+                && !this.fechaNacimiento.getText().isEmpty()
+                && !this.domicilio.getText().isEmpty()
+                && !this.salario.getText().isEmpty()
+                && !this.contrasena.getText().isEmpty()
+                && !this.edad.getText().isEmpty()) {
+            String nombre = this.nombre.getText();
+            String id = this.identificador.getText();
+            String apellido = this.apellido.getText();
+            String fecha = this.fechaNacimiento.getText();
+            String domicilio = this.domicilio.getText();
+            String contrasena = this.contrasena.getText();
+            double salario = Double.parseDouble(this.salario.getText());
+            int edad = Integer.parseInt(this.edad.getText());
+           // Empleado emp=new Empleado(id,this.horoariobox.getSelectedItem().toString(),
+             //    salario,this.areacombo.getSelectedItem().toString()
+             //     ,contrasena,nombre,apellido,fecha,edad,domicilio);
+                 
+            if (!this.identificador.getText().isEmpty()) {
+                int i = this.datos.empleados.buscar(this.identificador.getText());
+                System.out.println(i);
+                if (i != -1) {
+                    this.encontrado(i);
+                    Empleado emp = this.datos.empleados.empleados[i];
+                    this.mensaje.setText("Empleado encontrado");
+                    emp.setNombre(nombre);
+                    emp.setApellido(apellido);
+                    emp.setFechaNacimiento(fecha);
+                    emp.setDomicilio(domicilio);
+                    emp.setContrasena(contrasena);
+                    emp.setSalario(salario);
+                    emp.setEdad(edad);
+                    emp.setHorario(this.horoariobox.getSelectedItem().toString());
+                    emp.setArea(this.areacombo.getSelectedItem().toString());
+                } else {
+                    this.mensaje.setText("Empleado no encontrado");
+                }
+            } else {
+                this.mensaje.setText("Llena el campo de identificador");
+            }
             this.limpiar();
             this.mensaje.setText("Empleado Editado");
-        }else{
+        } else {
             this.mensaje.setText("Llena todos los campos");
         }
     }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
         // TODO add your handling code here:
-        if(!this.identificador.getText().isEmpty()){
-           int i= this.datos.empleados.eliminar(this.identificador.getText());
-            if(i!=-1){
+        if (!this.identificador.getText().isEmpty()) {
+            int i = this.datos.empleados.eliminar(this.identificador.getText());
+            if (i != -1) {
                 this.mensaje.setText("Empleado Eliminado");
-            }else{
+            } else {
                 this.mensaje.setText("Empleado no encontrado");
             }
-        }else{
+        } else {
             this.mensaje.setText("Llena el campo de identificador");
         }
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jbVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverActionPerformed
         // TODO add your handling code here:
-        MenuAdministrador menu=new MenuAdministrador(this.datos);
+        MenuAdministrador menu = new MenuAdministrador(this.datos);
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jbVolverActionPerformed
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         // TODO add your handling code here:
-        if(!this.identificador.getText().isEmpty()){
-           int i= this.datos.empleados.buscar(this.identificador.getText());
-           System.out.println(i);
-            if(i!=-1){
+        if (!this.identificador.getText().isEmpty()) {
+            int i = this.datos.empleados.buscar(this.identificador.getText());
+            System.out.println(i);
+            if (i != -1) {
                 this.encontrado(i);
-                this.mensaje.setText("Empleado encotrado");
-            }else{
+                this.mensaje.setText("Empleado encontrado");
+            } else {
                 this.mensaje.setText("Empleado no encontrado");
             }
-        }else{
+        } else {
             this.mensaje.setText("Llena el campo de identificador");
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
-private void encontrado(int posicion){
-    Empleado emp=this.datos.empleados.empleados[posicion];
-    this.nombre.setText(emp.getNombre());
-    this.apellido.setText(emp.getApellido());
-    this.edad.setText(emp.getEdad()+"");
-    this.fechaNacimiento.setText(emp.getFechaNacimiento());
-    this.domicilio.setText(emp.getDomicilio());
-    this.salario.setText(emp.getSalario()+"");
-    
-    if(emp.getHorario()=="MATUTINO"){
-        this.horoariobox.setSelectedIndex(0);
-    }else if(emp.getHorario()=="VESPERTINO"){
-        this.horoariobox.setSelectedIndex(1);
-    }else{
-       this.horoariobox.setSelectedIndex(2); 
+    private void encontrado(int posicion) {
+        Empleado emp = this.datos.empleados.empleados[posicion];
+        this.nombre.setText(emp.getNombre());
+        this.apellido.setText(emp.getApellido());
+        this.edad.setText(emp.getEdad() + "");
+        this.fechaNacimiento.setText(emp.getFechaNacimiento());
+        this.domicilio.setText(emp.getDomicilio());
+        this.salario.setText(emp.getSalario() + "");
+
+        if (emp.getHorario() == "MATUTINO") {
+            this.horoariobox.setSelectedIndex(0);
+        } else if (emp.getHorario() == "VESPERTINO") {
+            this.horoariobox.setSelectedIndex(1);
+        } else {
+            this.horoariobox.setSelectedIndex(2);
+        }
+        if (emp.getArea() == "VENDEDOR") {
+            this.areacombo.setSelectedIndex(0);
+        } else {
+            this.areacombo.setSelectedIndex(1);
+        }
+
     }
-    if(emp.getArea()=="VENDEDOR"){
-       this.areacombo.setSelectedIndex(0); 
-    }else{
-        this.areacombo.setSelectedIndex(1); 
+
+    private void limpiar() {
+        this.nombre.setText("");
+        this.identificador.setText("");
+        this.apellido.setText("");
+        this.fechaNacimiento.setText("");
+        this.domicilio.setText("");
+        this.contrasena.setText("");
+        this.salario.setText("");
+        this.edad.setText("");
     }
-    
-    
-}
-private void limpiar(){
-    this.nombre.setText("");
-    this.identificador.setText("");
-    this.apellido.setText("");
-    this.fechaNacimiento.setText("");
-    this.domicilio.setText("");
-    this.contrasena.setText("");
-    this.salario.setText("");
-    this.edad.setText("");
-}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField apellido;

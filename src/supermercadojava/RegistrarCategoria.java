@@ -167,6 +167,11 @@ public class RegistrarCategoria extends javax.swing.JFrame {
 
         jbModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/editar.png"))); // NOI18N
         jbModificar.setText("MODIFICAR");
+        jbModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbModificarActionPerformed(evt);
+            }
+        });
         jPanel1.add(jbModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 510, 140, 40));
 
         jbRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agregar.png"))); // NOI18N
@@ -216,6 +221,11 @@ public class RegistrarCategoria extends javax.swing.JFrame {
     private void jsbPasilloAdjustmentValueChanged(java.awt.event.AdjustmentEvent evt) {//GEN-FIRST:event_jsbPasilloAdjustmentValueChanged
         pasillo.setText("Pasillo: "+jsbPasillo.getValue());
     }//GEN-LAST:event_jsbPasilloAdjustmentValueChanged
+
+
+    private void jbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbModificarActionPerformed
 
     private void jbRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRegistrarActionPerformed
         // TODO add your handling code here:

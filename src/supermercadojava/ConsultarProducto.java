@@ -5,42 +5,20 @@
  */
 package supermercadojava;
 
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
- * @author PC
+ * @author Benjamín Cortina
  */
-public class ConsultarEmpleados extends javax.swing.JFrame {
+public class ConsultarProducto extends javax.swing.JFrame {
 
     /**
-     * Creates new form ConsultarEmpleados
+     * Creates new form ConsultarProducto
      */
-    Datos datos;
-    listaEmpleados emp;
-    DefaultTableModel table = new DefaultTableModel();
-    public ConsultarEmpleados(Datos datos) {
+    public ConsultarProducto() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.datos=datos;
-        String [] columnas= new String[]{"ID","Nombre","Apellido","Fecha de nacimiento"
-                ,"Edad","Salario","Horario","Area","Domicilio"};
-        
-        table.setColumnIdentifiers(columnas);
-        this.tabla.setModel(table);
-        Object[] emp=this.datos.empleados.imprimir();
-        int contador = this.datos.empleados.contador;
-        if(contador!=0){
-           for(int i =0;i<contador;i++){
-               Empleado a=(Empleado) emp[i];
-               table.addRow(new Object[]{a.getIdentificador(),a.getNombre(),a.getApellido(),a.getFechaNacimiento(),a.getEdad(),a.getSalario(),a.getHorario(),a.getArea(),a.getDomicilio()});
-            } 
-        }else{
-           JOptionPane.showMessageDialog(null, "No hay empleados registrados","Error", JOptionPane.ERROR_MESSAGE);
-        }
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,21 +30,16 @@ public class ConsultarEmpleados extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jbVolver = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tabla = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(146, 79, 246));
+        jPanel1.setBackground(new java.awt.Color(137, 187, 240));
 
         jbVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/regreso.png"))); // NOI18N
-        jbVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbVolverActionPerformed(evt);
-            }
-        });
 
-        tabla.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -77,24 +50,24 @@ public class ConsultarEmpleados extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(tabla);
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(1196, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jbVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(289, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(278, 278, 278)
+                .addContainerGap(290, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(276, 276, 276)
                 .addComponent(jbVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
@@ -113,17 +86,45 @@ public class ConsultarEmpleados extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverActionPerformed
-        // TODO add your handling code here:
-        MenuAdministrador menu=new MenuAdministrador(this.datos);
-        menu.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jbVolverActionPerformed
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ConsultarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ConsultarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ConsultarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ConsultarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ConsultarProducto().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JButton jbVolver;
-    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
 }
