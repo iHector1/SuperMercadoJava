@@ -336,7 +336,8 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
            // Empleado emp=new Empleado(id,this.horoariobox.getSelectedItem().toString(),
              //    salario,this.areacombo.getSelectedItem().toString()
              //     ,contrasena,nombre,apellido,fecha,edad,domicilio);
-                 
+              String horario=this.horoariobox.getSelectedItem().toString();
+              String area=this.areacombo.getSelectedItem().toString();
                 if (!this.identificador.getText().isEmpty()) {
                     int i = this.datos.empleados.buscar(this.identificador.getText());
                     System.out.println(i);
@@ -351,8 +352,8 @@ public class RegistrarEmpleado extends javax.swing.JFrame {
                         emp.setContrasena(contrasena);
                         emp.setSalario(salario);
                         emp.setEdad(edad);
-                        emp.setHorario(this.horoariobox.getSelectedItem().toString());
-                        emp.setArea(this.areacombo.getSelectedItem().toString());
+                        emp.setHorario(horario);
+                        emp.setArea(area);
                     } else {
                         this.mensaje.setText("Empleado no encontrado");
                     }

@@ -30,7 +30,7 @@ public class ConsultarCategoria extends javax.swing.JFrame {
         table.setColumnIdentifiers(columnas);
         this.tabla.setModel(table);
         if(this.datos.categoria.inicio==null){ 
-            JOptionPane.showMessageDialog(null, "No hay empleados registrados","Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No hay categorias registradas","Error", JOptionPane.ERROR_MESSAGE);
         }else{
            this.mostrar();
         }

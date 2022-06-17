@@ -33,7 +33,7 @@ public class ConsultarProducto extends javax.swing.JFrame {
         table.setColumnIdentifiers(columnas);
         this.tabla.setModel(table);
         if(this.datos.categoria.inicio==null){ 
-            JOptionPane.showMessageDialog(null, "No hay empleados registrados","Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No hay productos registrados","Error", JOptionPane.ERROR_MESSAGE);
         }else{
            this.mostrar();
         }
